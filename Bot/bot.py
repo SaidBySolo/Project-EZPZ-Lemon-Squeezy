@@ -9,12 +9,12 @@ token = "Token"
 
 @client.event
 async def on_ready():
-    # Status message
+    # Login
     print("login.... ")
     print(client.user.name)
     print(client.user.id)
     print("======================")
-    
+
 @client.event
 async def on_message(message):
     if message.content == ("안녕?"):
