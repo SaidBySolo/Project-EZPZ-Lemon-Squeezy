@@ -1,23 +1,21 @@
 import discord
-import datetime
-import random
+from discord.ext import commands
 
-client = discord.Client()
+token = "NjU3NjA0NDA3MDIxNjY2MzA0.XfzoCQ.3OBZ_60-CcPyaZcC-uGW9SLHOIo"
 
-token = "Token"
+#command_prefix
+bot = commands.Bot(command_prefix='!')
 
-
-@client.event
+@bot.event        
+        #Login
 async def on_ready():
-    # Login
     print("login.... ")
-    print(client.user.name)
-    print(client.user.id)
+    print(bot.user.name)
+    print(bot.user.id)
     print("======================")
 
-@client.event
-async def on_message(message):
-    if message.content == ("안녕?"):
-        await message.channel.send("안녕! :smile:")
+@bot.command()
+async def test(ctx):
+    await ctx.send('OK')
 
-client.run(token)
+bot.run(token)
