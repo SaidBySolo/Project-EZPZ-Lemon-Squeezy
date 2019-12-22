@@ -9,7 +9,7 @@ from discord.ext import commands
 bot = commands.Bot(command_prefix='!')
 
 #paste token
-token = botToken.token
+token = "token"
 
 @bot.event
 async def on_ready():
@@ -65,7 +65,7 @@ async def on_message(message):
         if message.author.id == Bliz_id:
             await message.channel.send(embed = BotEmbed.Bliz)
 
-    if message.content == "!내정보"
+    if message.content == "!내정보":
         if message.author.id == Decfcone1_id:
             await message.channel.send(embed = BotEmbed.Decfcone1)
 

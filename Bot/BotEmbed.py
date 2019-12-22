@@ -14,12 +14,24 @@ Sabin.set_footer(text="Don't call me...." + str(now.year) + "년 " + str(now.mon
 
 #SaidBySolo Embed setting
 SaidBySolo = discord.Embed(title="SaidBySolo", description="This Embed is a Profile of SaidBySolo", color=0x569271)
+Sabin.set_author(name="Name : ")
+Sabin.set_thumbnail(url="https://imgur.com/YBZEvFq.png")
+Sabin.add_field(name="Position", value="Leader Developer", inline=False)
+Sabin.add_field(name="Status", value=":thinking:", inline=False)
+Sabin.add_field(name="Contact Information", value="Discord : 라고솔로가말했습니다#1234", inline=False)
+Sabin.set_footer(text="Do U Wanna MAGIC TOUCH....?" + str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
 
 #Bliz Embed setting
 bliz = discord.Embed(title="bliz", description="This Embed is a Profile of bliz", color=0x569271)
 
 #Unoh03 Embed setting
 Unoh03 = discord.Embed(title="Unoh03", description="This Embed is a Profile of Unoh03", color=0x569271)
+Unoh03.set_author(name="Name : ")
+Unoh03.set_thumbnail(url="https://imgur.com/wEDioHB.png")
+Unoh03.add_field(name="Position", value="Tester", inline=False)
+Unoh03.add_field(name="Status", value=":angry:", inline=False)
+Unoh03.add_field(name="Contact Information", value="Discord : Unoh03#6944", inline=False)
+Unoh03.set_footer(text="I'm not a developer!!" + str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
 
 #Decfcone1 Embed setting
 Decfcone1 = discord.Embed(title="Decfcone1", description="This Embed is a Profile of Decfcone1", color=0x569271)
