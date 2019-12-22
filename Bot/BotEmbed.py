@@ -3,6 +3,7 @@ import discord
 
 now = datetime.datetime.now()
 
+#Sabin Embed setting
 Sabin = discord.Embed(title="Sabin", description="This Embed is a Profile of Sabin", color=0x569271)
 Sabin.set_author(name="Name : ")
 Sabin.set_thumbnail(url="https://imgur.com/j0yodUO.png")
@@ -10,6 +11,17 @@ Sabin.add_field(name="Position", value="Leader Developer", inline=False)
 Sabin.add_field(name="Status", value=":tired_face:", inline=False)
 Sabin.add_field(name="Contact Information", value="Discord : Sabin#9478", inline=False)
 Sabin.set_footer(text="Don't call me...." + str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
+
+#SaidBySolo Embed setting
+
+#Bliz Embed setting
+
+#Unoh03 Embed setting
+
+#Decfcone1 Embed setting
+
+#JH Embed setting
+
 
 #help embed setting
 Helps=discord.Embed(title="Bot", color=0xffff80)

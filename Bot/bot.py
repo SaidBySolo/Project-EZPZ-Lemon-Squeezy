@@ -2,25 +2,31 @@ import discord
 import datetime
 import random
 import BotEmbed
+import botToken
+from discord.ext import commands
 
-client = discord.Client()
+#prefix
+bot = commands.Bot(command_prefix='!')
 
-token = "NjU3NjA0NDA3MDIxNjY2MzA0.XfzoCQ.3OBZ_60-CcPyaZcC-uGW9SLHOIo"
+#paste token
+token = botToken.token
 
-
-@client.event
+@bot.event
 async def on_ready():
     # login
-    print("다음으로 로그인합니다 : ")
-    print(client.user.name)
-    print(client.user.id)
+    print("Login.. : ")
+    print(bot.user.name)
+    print(bot.user.id)
     print("======================")
 
-    # 상태메시지 표시
-    #game0 = discord.Game("")
-    #await client.change_presence(status=discord.Status.online, activity=game0)
+    # Status message
+    game = discord.Game("v.1.0.0, !도움말")
+    await bot.change_presence(status=discord.Status.online, activity=game)
 
-@client.event
+
+    #need Prefix work.
+    #commands
+@bot.event
 async def on_message(message):
 
     if message.author.bot:
@@ -40,7 +46,9 @@ async def on_message(message):
     SBS_id = 345265069132742657
     Bliz_id = 268334477720289281
     Decfcone1_id = 315373718568173568
+    JH_id = 587245907029000205
 
+    #my information
     if message.content == "!내정보":
         if message.author.id == Sabin_id:
             await message.channel.send(embed = BotEmbed.Sabin)
@@ -49,4 +57,20 @@ async def on_message(message):
         if message.author.id == SBS_id:
             await message.channel.send(embed = BotEmbed.SaidBySolo)
 
-client.run(token)
+    if message.content == "!내정보":
+        if message.author.id == Huggy_id:
+            await message.channel.send(embed = BotEmbed.Huggy)
+
+    if message.content == "!내정보":
+        if message.author.id == Bliz_id:
+            await message.channel.send(embed = BotEmbed.Bliz)
+
+    if message.content == "!내정보"
+        if message.author.id == Decfcone1_id:
+            await message.channel.send(embed = BotEmbed.Decfcone1)
+
+    if message.content == "!내정보":
+        if message.author.id == JH_id:
+            await message.channel.send(embed = BotEmbed.JH)
+
+bot.run(token)
