@@ -13,15 +13,19 @@ Sabin.add_field(name="Contact Information", value="Discord : Sabin#9478", inline
 Sabin.set_footer(text="Don't call me...." + str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
 
 #SaidBySolo Embed setting
+SaidBySolo = discord.Embed(title="SaidBySolo", description="This Embed is a Profile of SaidBySolo", color=0x569271)
 
 #Bliz Embed setting
+bliz = discord.Embed(title="bliz", description="This Embed is a Profile of bliz", color=0x569271)
 
 #Unoh03 Embed setting
+Unoh03 = discord.Embed(title="Unoh03", description="This Embed is a Profile of Unoh03", color=0x569271)
 
 #Decfcone1 Embed setting
+Decfcone1 = discord.Embed(title="Decfcone1", description="This Embed is a Profile of Decfcone1", color=0x569271)
 
 #JH Embed setting
-
+JH = discord.Embed(title="JH", description="This Embed is a Profile of JH", color=0x569271)
 
 #help embed setting
 Helps=discord.Embed(title="Bot", color=0xffff80)
