@@ -3,15 +3,18 @@ import datetime
 import random
 import BotEmbed
 import botToken
-from discord.ext import commands
+#from discord.ext import commands
 
-#prefix
-bot = commands.Bot(command_prefix='!')
+#prefix(무기한연장)
+#bot = commands.Bot(command_prefix='!')
+
+#Client
+client = discord.Client()
 
 #paste token
 token = "token"
 
-@bot.event
+@client.event
 async def on_ready():
     # login
     print("Login.. : ")
@@ -21,12 +24,12 @@ async def on_ready():
 
     # Status message
     game = discord.Game("v.1.0.0, !도움말")
-    await bot.change_presence(status=discord.Status.online, activity=game)
+    await client.change_presence(status=discord.Status.online, activity=game)
 
 
     #need Prefix work.
     #commands
-@bot.event
+@client.event
 async def on_message(message):
 
     if message.author.bot:
@@ -73,4 +76,4 @@ async def on_message(message):
         if message.author.id == JH_id:
             await message.channel.send(embed = BotEmbed.JH)
 
-bot.run(token)
+client.run(token)
