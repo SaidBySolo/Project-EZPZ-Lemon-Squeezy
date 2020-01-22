@@ -22,7 +22,7 @@ SaidBySolo.add_field(name="Contact Information", value="Discord : 라고솔로�
 SaidBySolo.set_footer(text="Do U Wanna MAGIC TOUCH....?" + str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
 
 #Bliz Embed setting
-bliz = discord.Embed(title="bliz", description="This Embed is a Profile of bliz", color=0x569271)
+Bliz = discord.Embed(title="Bliz", description="This Embed is a Profile of bliz", color=0x569271)
 
 #Unoh03 Embed setting
 Unoh03 = discord.Embed(title="Unoh03", description="This Embed is a Profile of Unoh03", color=0x569271)
@@ -38,6 +38,9 @@ Decfcone1 = discord.Embed(title="Decfcone1", description="This Embed is a Profil
 
 #JH Embed setting
 JH = discord.Embed(title="JH", description="This Embed is a Profile of JH", color=0x569271)
+
+#Huggy Embed setting
+Huggy = discord.Embed(title="Huggy", description="This Embed is a Profile of Huggy", color=0x569271)
 
 #help embed setting
 Helps=discord.Embed(title="Bot", color=0xffff80)
