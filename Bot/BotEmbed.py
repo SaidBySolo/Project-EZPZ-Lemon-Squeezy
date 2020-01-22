@@ -14,12 +14,12 @@ Sabin.set_footer(text="Don't call me...." + str(now.year) + "년 " + str(now.mon
 
 #SaidBySolo Embed setting
 SaidBySolo = discord.Embed(title="SaidBySolo", description="This Embed is a Profile of SaidBySolo", color=0x569271)
-Sabin.set_author(name="Name : ")
-Sabin.set_thumbnail(url="https://imgur.com/YBZEvFq.png")
-Sabin.add_field(name="Position", value="Leader Developer", inline=False)
-Sabin.add_field(name="Status", value=":thinking:", inline=False)
-Sabin.add_field(name="Contact Information", value="Discord : 라고솔로가말했습니다#1234", inline=False)
-Sabin.set_footer(text="Do U Wanna MAGIC TOUCH....?" + str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
+SaidBySolo.set_author(name="Name : ")
+SaidBySolo.set_thumbnail(url="https://imgur.com/YBZEvFq.png")
+SaidBySolo.add_field(name="Position", value="Leader Developer", inline=False)
+SaidBySolo.add_field(name="Status", value=":thinking:", inline=False)
+SaidBySolo.add_field(name="Contact Information", value="Discord : 라고솔로가말했습니다#1234", inline=False)
+SaidBySolo.set_footer(text="Do U Wanna MAGIC TOUCH....?" + str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
 
 #Bliz Embed setting
 bliz = discord.Embed(title="bliz", description="This Embed is a Profile of bliz", color=0x569271)
@@ -42,7 +42,7 @@ JH = discord.Embed(title="JH", description="This Embed is a Profile of JH", colo
 #help embed setting
 Helps=discord.Embed(title="Bot", color=0xffff80)
 Helps.set_author(name="EZPZ Lemon Squeezy", icon_url="https://imgur.com/j0yodUO.png")
-Helps.set_thumbnail(url="https://imgur.com/L4YDwVk.png")
+Helps.set_thumbnail(url="https://imgur.com/ysG49Sc.png")
 Helps.add_field(name="봇 이름", value="???", inline=False)
 Helps.add_field(name="메인개발진", value="Main Developer : Sabin, SaidBySolo ", inline=False)
 Helps.add_field(name="개발진", value="Developer : Unoh03", inline=False)
