@@ -31,17 +31,17 @@ async def 도움말(ctx):
 async def 제작현황(ctx):
     await ctx.send("제작중")
 
-@bot.command(name = "My information")
+@bot.command()
 async def 내정보(ctx):
     react_embed = (ctx.author.id)
-    if react_embed is not None: 
+    if react_embed is not None:
         if react_embed == 406430032546889730:
             await ctx.send(embed = BotEmbed.Sabin)
         elif react_embed == 345265069132742657:
                 await ctx.send(embed = BotEmbed.SaidBySolo)
         else:
                 await ctx.send("임베드가 존재하지않습니다. 관리자에게 문의하여주세요")
-        
-            
-       
+
+
+
 bot.run(token)
