@@ -6,7 +6,7 @@ now = datetime.datetime.now()
 #Sabin Embed setting
 Sabin = discord.Embed(title="Sabin", description="This Embed is a Profile of Sabin", color=0x569271)
 Sabin.set_author(name="Name : ")
-Sabin.set_thumbnail(url="https://imgur.com/j0yodUO.png")
+Sabin.set_thumbnail(url="https://imgur.com/Kv17Jnm.png")
 Sabin.add_field(name="Position", value="Leader Developer", inline=False)
 Sabin.add_field(name="Status", value=":tired_face:", inline=False)
 Sabin.add_field(name="Contact Information", value="Discord : Sabin#9478", inline=False)
