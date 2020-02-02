@@ -31,17 +31,22 @@ async def 도움말(ctx):
 async def 제작현황(ctx):
     await ctx.send("제작중")
 
+#User Embed
+user_embed = {
+406430032546889730: BotEmbed.Sabin,
+345265069132742657: BotEmbed.SaidBySolo,
+263643715401285632: BotEmbed.Huggy,
+268334477720289281: BotEmbed.Bliz,
+259286662117326848: BotEmbed.Unoh03,
+}
+
+#Information command
 @bot.command()
 async def 내정보(ctx):
-    react_embed = (ctx.author.id)
-    if react_embed is not None:
-        if react_embed == 406430032546889730:
-            await ctx.send(embed = BotEmbed.Sabin)
-        elif react_embed == 345265069132742657:
-                await ctx.send(embed = BotEmbed.SaidBySolo)
-        else:
-                await ctx.send("임베드가 존재하지않습니다. 관리자에게 문의하여주세요")
-
-
-
+    react_embed = user_embed.get(ctx.author.id)
+    if react_embed is not None: 
+        await ctx.send(embed = react_embed)
+    else:
+        await ctx.send("엠베드가 존재하지않슴니다. 관리자에게 문의해주세요")
+       
 bot.run(token)
