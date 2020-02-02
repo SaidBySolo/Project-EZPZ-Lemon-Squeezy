@@ -42,6 +42,18 @@ async def 도움말(ctx):
 @bot.command()
 async def 제작현황(ctx):
     await ctx.send("제작중")
+
+@bot.command()
+async def ping(ctx):
+    await ctx.send(":ping_pong:Pong! {0}".format(round(bot.latency, 1)))
+
+@bot.command()
+async def 핑(ctx):
+    await ctx.send(":ping_pong:퐁! {0}".format(round(bot.latency, 1)))
+
+@bot.command()
+async def 투표(message):
+    await message.send(embed = BotEmbed.Vote1)
     
 #Information command
 @bot.command()

@@ -1,6 +1,8 @@
 import datetime
 import discord
+from discord.ext import commands
 
+#time
 now = datetime.datetime.now()
 
 #Sabin Embed setting
@@ -52,3 +54,8 @@ Helps.add_field(name="개발진", value="Developer : Unoh03", inline=False)
 Helps.add_field(name="명령어", value="!도움말 : 도움말을 보여줍니다.\n안녕 : 인사해줍니다. 착해요.\n!제작현황 : 제작 현황이 나옵니다. 근데 쓸데없어요.\n!내정보 : 자신의 프로필이 나옵니다. 업데이트는 느려요.", inline=False)
 Helps.add_field(name="연락처", value="Sabin : Sabin#9478 (많이 연락하지 마세요....)\nSaidBySolo : 라고솔로가말했습니다#1234", inline=False)
 Helps.set_footer(text="ver 1.0.1    제작 - Sabin")
+
+#Vote1 Embed setting
+Vote1 = discord.Embed(title="투표를 생성하시겠습니까?", description="생성자:" , color=0x569271)
+Vote1.add_field(name="이모지에 반응하여주세요", value=" :white_check_mark:생성 :negative_squared_cross_mark:생성취소", inline=False)
+Vote1.set_footer(text="생성날짜:" + str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일" + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
