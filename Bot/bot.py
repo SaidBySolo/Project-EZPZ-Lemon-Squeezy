@@ -2,7 +2,6 @@ import discord
 import datetime
 import random
 import BotEmbed
-import botToken
 import userdict
 import asyncio
 from discord.ext import commands
@@ -58,14 +57,17 @@ async def 투표(ctx):
     for emoji in ('✅', '❎'):
         await message.add_reaction(emoji)
     def check(reaction, user):
-        return user == ctx.author and str(reaction.emoji) == '✅'
+        return user == ctx.author and str(reaction.emoji) == '✅' or user == ctx.author and str(reaction.emoji) == '❎'
 
     try:
         reaction, user = await bot.wait_for('reaction_add', timeout=10.0, check=check)
     except asyncio.TimeoutError:
         await ctx.send('시간이 초과되었습니다 다시시도해주세요')
     else:
-        await ctx.send(embed = BotEmbed.Vote2)
+        if str(reaction.emoji) == '✅':
+            await ctx.send(embed = BotEmbed.Vote2)
+        else:
+            await ctx.send('취소됨')
    
     
 #Information command
