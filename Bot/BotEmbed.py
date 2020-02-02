@@ -57,5 +57,9 @@ Helps.set_footer(text="ver 1.0.1    제작 - Sabin")
 
 #Vote1 Embed setting
 Vote1 = discord.Embed(title="투표를 생성하시겠습니까?", description="생성자:" , color=0x569271)
-Vote1.add_field(name="이모지에 반응하여주세요", value=" :white_check_mark:생성 :negative_squared_cross_mark:생성취소", inline=False)
-Vote1.set_footer(text="생성날짜:" + str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일" + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
+Vote1.add_field(name="이모지에 반응하여주세요", value=" :white_check_mark:생성\n:negative_squared_cross_mark:생성취소", inline=False)
+Vote1.set_footer(text="생성일시:" + str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일" + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
+
+#Vote2 Embed setting
+Vote2 = discord.Embed(title="제목을 입력해주세요.", description="생성자:" , color=0x569271)
+Vote2.set_footer(text="생성일시:" + str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일" + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second))
