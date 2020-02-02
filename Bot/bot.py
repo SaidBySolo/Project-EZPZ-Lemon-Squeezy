@@ -2,7 +2,6 @@ import discord
 import datetime
 import random
 import BotEmbed
-import botToken
 import userdict
 from discord.ext import commands
 
@@ -27,13 +26,13 @@ async def on_ready():
     # Status
     game = discord.Game("v.1.0.1, !도움말")
     await bot.change_presence(status=discord.Status.online, activity=game)
- 
+
 #command not found
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("명령어를 찾을수없습니다. !도움말을 참조하여 확인해주세요")
-    
+
 #commands
 @bot.command()
 async def 도움말(ctx):
@@ -61,9 +60,9 @@ async def 투표(ctx):
 @bot.command()
 async def 내정보(ctx):
     react_embed = userdict.user_embed.get(ctx.author.id)
-    if react_embed is not None: 
+    if react_embed is not None:
         await ctx.send(embed = react_embed)
     else:
         await ctx.send("엠베드가 존재하지않슴니다. 관리자에게 문의해주세요")
-       
+
 bot.run(token)
