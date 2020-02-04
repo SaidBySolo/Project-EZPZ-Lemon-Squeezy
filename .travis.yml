@@ -6,4 +6,4 @@ install:
 - pip install discord
 # command to run tests
 script:
-- python bot/bot.py
+- python Bot/bot.py
