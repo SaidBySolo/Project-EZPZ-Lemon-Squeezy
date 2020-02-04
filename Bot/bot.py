@@ -4,6 +4,8 @@ import random
 import BotEmbed
 import userdict
 import asyncio
+import requests
+import json
 from discord.ext import commands
 
 #prefix
@@ -27,7 +29,7 @@ async def on_ready():
     # Status
     game = discord.Game("v.1.0.1, !도움말")
     await bot.change_presence(status=discord.Status.online, activity=game)
- 
+
 #command not found
 @bot.event
 async def on_command_error(ctx, error):
@@ -79,4 +81,10 @@ async def 내정보(ctx):
     else:
         await ctx.send("엠베드가 존재하지않슴니다. 관리자에게 문의해주세요")
        
+
+#급식parser
+innamUrl = 'https://schoolmenukr.ml/api/middle/E100000262'
+response = requests.get(url)
+school_menu = json.loads(response.text)
+print(school_menu)
 bot.run(token)
