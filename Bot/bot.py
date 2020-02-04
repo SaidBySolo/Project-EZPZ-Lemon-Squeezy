@@ -69,12 +69,12 @@ async def 투표(ctx):
     try:
         reaction, user = await bot.wait_for('reaction_add', timeout=10.0, check=check)
     except asyncio.TimeoutError:
-        await message.edit(embed=BotEmbed.TimeOut)
+        await message.edit(embed = BotEmbed.TimeOut)
     else:
         if str(reaction.emoji) == '✅':
             message2 = await message.edit(embed=BotEmbed.Vote2)
         else:
-            await message.edit(embed=BotEmbed.Cancle)
+            await message.edit(embed = BotEmbed.Cancle)
   
 
 #Information command
@@ -88,8 +88,30 @@ async def 내정보(ctx):
        
 
 #급식parser
-innamUrl = 'https://schoolmenukr.ml/api/middle/E100000262'
-response = requests.get(url)
-school_menu = json.loads(response.text)
-print(school_menu)
+now = datetime.datetime.now()
+year = str(now.year)
+month = str(now.month)
+date = str(now.day)
+#인천남고
+@bot.command()
+async def 인남급식(ctx):
+    innamUrl = 'https://schoolmenukr.ml/api/middle/E100000262?year=' + year + '&month=' + month + '&date=' + date + '&hideAllergy=true'
+    innamResponse = requests.get(innamUrl)
+    innam_school_menu = json.loads(innamResponse.text)
+    await ctx.send(innam_school_menu)
+
+@bot.command()
+async def 인기공급식(ctx):
+    ingiUrl = 'https://schoolmenukr.ml/api/middle/E100000261?year=' + year + '&month=' + month + '&date=' + date + '&hideAllergy=true'
+    ingiResponse = requests.get(ingiUrl)
+    ingi_school_menu = json.loads(ingiResponse.text)
+    await ctx.send(ingi_school_menu)
+
+@bot.command()
+async def 인고급식(ctx):
+    incheonUrl = 'https://schoolmenukr.ml/api/middle/E100000258?year=' + year + '&month=' + month + '&date=' + date + '&hideAllergy=true'
+    incheonResponse = requests.get(incheonUrl)
+    incheon_school_menu = json.loads(incheonResponse.text)
+    await ctx.send(incheon_school_menu)
+
 bot.run(token)
