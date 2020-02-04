@@ -7,4 +7,4 @@ install:
 - pip install requests
 # command to run tests
 script:
-- python Bot/bot.py
+- pytest Bot/bot.py
