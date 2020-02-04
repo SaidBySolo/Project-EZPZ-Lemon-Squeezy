@@ -1,9 +1,8 @@
 language: python
-rvm:
- - "3.8"
- # command to install dependencies
-install:
-  - pip install discord
+python:
+  - "3.8"
+# command to install dependencies
+install: "sudo pip install -r requirements.txt"
 # command to run tests
-script:
-  - pytest
+script: python manage.py test lists/
+sudo: required
