@@ -43,7 +43,7 @@ async def 도움말(ctx):
 
 @bot.command()
 async def passtravisbuild(ctx):
-    exit()
+    print("Hello,World!")
 
 @bot.command()
 async def 제작현황(ctx):
