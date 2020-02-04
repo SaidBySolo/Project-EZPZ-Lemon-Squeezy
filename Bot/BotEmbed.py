@@ -38,7 +38,7 @@ Unoh03.set_footer(text="I'm not a developer!!" + str(now.year) + "년 " + str(no
 #Dong9 Embed setting
 Dong9 = discord.Embed(title="Dong9", description="This Embed is a Profile of Dong9", color = 0x569271)
 Dong9.set_author(name="Name :")
-Dong9.set_thumbnail(url="https://tenor.com/view/two-spiderman-pointing-meme-gif-11796793.gif")
+Dong9.set_thumbnail(url="https://imgur.com/HEMbhcj.gif")
 Dong9.add_field(name="Position", value="Developer", inline=False)
 Dong9.add_field(name="Status", value=":zipper_mouth:", inline=False)
 Dong9.add_field(name="Contact Information", value="Discord : 김동규#0285", inline=False)
