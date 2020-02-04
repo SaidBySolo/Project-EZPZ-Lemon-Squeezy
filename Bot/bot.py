@@ -53,25 +53,30 @@ async def ping(ctx):
 async def 핑(ctx):
     await ctx.send(":ping_pong:퐁! {0}".format(round(bot.latency, 1)))
 
+#급식
+async def 급식(ctx):
+    await ctx.send("오늘의 급식입니다.")
+
 @bot.command()
 async def 투표(ctx):
-    message = await ctx.send(embed = BotEmbed.Vote1)
+    message = await ctx.send(embed=BotEmbed.Vote1)
     for emoji in ('✅', '❎'):
         await message.add_reaction(emoji)
+
     def check(reaction, user):
         return user == ctx.author and str(reaction.emoji) == '✅' or user == ctx.author and str(reaction.emoji) == '❎'
 
     try:
         reaction, user = await bot.wait_for('reaction_add', timeout=10.0, check=check)
     except asyncio.TimeoutError:
-        await ctx.send('시간이 초과되었습니다 다시시도해주세요')
+        await message.edit(embed=BotEmbed.TimeOut)
     else:
         if str(reaction.emoji) == '✅':
-            await ctx.send(embed = BotEmbed.Vote2)
+            message2 = await message.edit(embed=BotEmbed.Vote2)
         else:
-            await ctx.send('취소됨')
-   
-    
+            await message.edit(embed=BotEmbed.Cancle)
+  
+
 #Information command
 @bot.command()
 async def 내정보(ctx):
