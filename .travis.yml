@@ -4,6 +4,7 @@ python:
 # command to install dependencies
 install: 
 - pip install discord
+- pip install requests
 # command to run tests
 script:
 - python Bot/bot.py
