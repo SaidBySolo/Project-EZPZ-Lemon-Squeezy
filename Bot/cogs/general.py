@@ -1,34 +1,21 @@
 import discord
 import asyncio
 import datetime
-from of.botembed import BotEmbed
-from of.userdict import UserDict
 from discord.ext import commands
 
-
-class General():
+class General(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command(hidden=True)
-    async def 핑(self):
-        await self.bot.say(":ping_pong:퐁!")
-
-    #Information command
-    @commands.command(pass_context=True)
-    async def 내정보(self, ctx):
-        react_embed = UserDict.user_embed.get(ctx.author.id)
-        if react_embed is not None: 
-            await self.bot.say(embed = react_embed)
-        else:
-            await self.bot.say("엠베드가 존재하지않슴니다. 관리자에게 문의해주세요")
-
+    async def 핑(self, ctx):
+        await ctx.send(":ping_pong:퐁!")
 
     @commands.command(pass_context=True)
     async def 투표(self, ctx, *args):
         args = [arg for arg in args]
         if not len(args):
-            self.bot.say("`투표` `질문` `(옵션1)` `(옵션2)` `...`순으로 입력해주세용")
+            await ctx.send("`투표` `질문` `(옵션1)` `(옵션2)` `...`순으로 입력해주세요")
             return
         question = args[0]
         options = args[1:]
@@ -48,7 +35,7 @@ class General():
         if not name:
             name = ctx.message.author.name
         em.set_footer(text="생성자{}".format(name), icon_url=ctx.message.author.avatar_url)
-        msg = await self.bot.send_message(ctx.message.channel, embed=em)
+        msg = await ctx.send(ctx.message.channel, embed=em)
 
         optionEmojis = optionEmojis[:len(options)]
         for emoji in optionEmojis:
@@ -71,13 +58,5 @@ class General():
             )
             optionCnt += 1
 
-        await self.bot.send_message(ctx.message.channel, embed=result)
+        await ctx.send(ctx.message.channel, embed=result)
 
-
-
- 
-
-
-def setup(bot):
-    general = General(bot)
-    bot.add_cog(general)
