@@ -1,7 +1,4 @@
 import discord
-import datetime
-import random
-import json
 from discord.ext import commands
 
 #prefix
@@ -14,13 +11,14 @@ bot.remove_command ('help')
 token = "NjU3NjA0NDA3MDIxNjY2MzA0.Xf-JVw.Krgxt54ycfRKhRs0oQ5vSf7PLwI"
 
 #cogs import here
-initial_extensions = ['cogs.general']
+initial_extensions = ['cogs.general',
+                    'cogs.lunch',
+                    'cogs.vote']
 
 #cogs
 if __name__ == '__main__':
     for extension in initial_extensions:
         bot.load_extension(extension)
-
 
 #login,status
 @bot.event
