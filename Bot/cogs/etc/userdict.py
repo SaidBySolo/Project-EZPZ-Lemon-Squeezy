@@ -1,6 +1,5 @@
 from .botembed import BotEmbed
 
-
 class UserDict:
 #User Embed
     user_embed = {

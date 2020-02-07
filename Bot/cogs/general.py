@@ -16,14 +16,6 @@ class General(commands.Cog):
     async def 제작현황(self, ctx):
         await ctx.send("제작중")
 
-    @commands.command()
-    async def ping(self, ctx):
-        await ctx.send(":ping_pong:Pong!")
-
-    @commands.command()
-    async def 핑(self, ctx):
-        await ctx.send(":ping_pong:퐁! ")
-
     #Information command
     @commands.command()
     async def 내정보(self, ctx):
