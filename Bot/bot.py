@@ -42,10 +42,6 @@ async def 도움말(ctx):
     await ctx.send(embed = BotEmbed.Helps)
 
 @bot.command()
-async def passtravisbuild(ctx):
-    print("Hello,World!")
-
-@bot.command()
 async def 제작현황(ctx):
     await ctx.send("제작중")
 
