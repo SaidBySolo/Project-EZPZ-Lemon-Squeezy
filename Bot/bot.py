@@ -1,8 +1,8 @@
 import discord
 import datetime
 import random
-import BotEmbed
-import userdict
+from botembed import BotEmbed
+from userdict import UserDict
 import asyncio
 import requests
 import json
@@ -57,34 +57,10 @@ async def ping(ctx):
 async def 핑(ctx):
     await ctx.send(":ping_pong:퐁! {0}".format(round(bot.latency, 1)))
 
-#급식
-async def 급식(ctx):
-    await ctx.send("오늘의 급식입니다.")
-
-@bot.command()
-async def 투표(ctx):
-    message = await ctx.send(embed=BotEmbed.Vote1)
-    for emoji in ('✅', '❎'):
-        await message.add_reaction(emoji)
-
-    def check(reaction, user):
-        return user == ctx.author and str(reaction.emoji) == '✅' or user == ctx.author and str(reaction.emoji) == '❎'
-
-    try:
-        reaction, user = await bot.wait_for('reaction_add', timeout=10.0, check=check)
-    except asyncio.TimeoutError:
-        await message.edit(embed = BotEmbed.TimeOut)
-    else:
-        if str(reaction.emoji) == '✅':
-            message2 = await message.edit(embed=BotEmbed.Vote2)
-        else:
-            await message.edit(embed = BotEmbed.Cancle)
-  
-
 #Information command
 @bot.command()
 async def 내정보(ctx):
-    react_embed = userdict.user_embed.get(ctx.author.id)
+    react_embed = UserDict.user_embed.get(ctx.author.id)
     if react_embed is not None: 
         await ctx.send(embed = react_embed)
     else:
