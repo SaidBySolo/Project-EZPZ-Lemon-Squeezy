@@ -14,7 +14,8 @@ token = "NjU3NjA0NDA3MDIxNjY2MzA0.Xf-JVw.Krgxt54ycfRKhRs0oQ5vSf7PLwI"
 initial_extensions = ['cogs.general',
                     'cogs.lunch',
                     'cogs.vote',
-                    'cogs.ping']
+                    'cogs.ping',
+                    'cogs.dice']
 
 #cogs
 if __name__ == '__main__':

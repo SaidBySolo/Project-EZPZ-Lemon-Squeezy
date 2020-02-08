@@ -10,7 +10,7 @@ class Vote(commands.Cog):
     async def 투표(self, ctx, *args):
         args = [arg for arg in args]
         if not len(args):
-            await ctx.send("투표` `질문` `(옵션1)` `(옵션2)` `...`순으로 입력해주세요")
+            await ctx.send("`투표` `질문` `(옵션1)` `(옵션2)` `...`순으로 입력해주세요")
             return
         question = args[0]
         options = args[1:]
