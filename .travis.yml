@@ -7,4 +7,4 @@ install:
 - pip install requests
 # command to run tests
 script:
-- pytest test/HW.py
+- pytest test/test.py

@@ -17,11 +17,27 @@ class NSFW(commands.Cog):
 
         response = requests.get('https://hiyobi.me/info/{}'.format(index))
         infohtml = response.text
-        soup = BeautifulSoup(infohtml, 'html.parser')
+        soup = BeautifulSoup(infohtml, 'lxml')
+        table = soup.find('table')
+        trs = table.find_all('tr')
         for title in soup.select('b'):
-            await ctx.send(title.text)
-            for tag in soup.select('tr'):
-                await ctx.send(tag.text)
-                
+            nsfwtitle = title.text
+            if len(soup.findAll('tr')) == 5:
+                tags = [t.text for t in trs[:5]]
+                nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
+                await ctx.send(embed = nsfwser)
+            elif len(soup.findAll('tr')) == 4:
+                tags = [t.text for t in trs[:4]]
+                nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
+                await ctx.send(embed = nsfwser)
+            elif len(soup.findAll('tr')) == 3:
+                tags = [t.text for t in trs[:3]]
+                nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
+                await ctx.send(embed = nsfwser)
+            elif len(soup.findAll('tr')) == 2:
+                tags = [t.text for t in trs[:2]]
+                nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
+                await ctx.send(embed = nsfwser)
+            
 def setup(bot):
     bot.add_cog(NSFW(bot))
