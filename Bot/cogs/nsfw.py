@@ -15,7 +15,7 @@ class NSFW(commands.Cog):
             await ctx.send("숫자를 입력해주세요")
             return
 
-        response = requests.get('https://hiyobi.me/info/{}'.format(index))
+        response = requests.get(f'https://hiyobi.me/info/{index}')
         infohtml = response.text
         soup = BeautifulSoup(infohtml, 'lxml')
         table = soup.find('table')
@@ -38,6 +38,13 @@ class NSFW(commands.Cog):
                 tags = [t.text for t in trs[:2]]
                 nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
                 await ctx.send(embed = nsfwser)
+        
+    @commands.command()
+    async def 히요비검색(self, ctx , *args):
+        response = requests.get(f"https://hiyobi.me/search/{args}")
+        infohtml = response.text
+        soup = BeautifulSoup(infohtml, 'lxml')
+
             
 def setup(bot):
     bot.add_cog(NSFW(bot))

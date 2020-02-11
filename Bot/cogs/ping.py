@@ -9,19 +9,17 @@ class Ping(commands.Cog):
         
     @commands.command(pass_context=True)
     async def ping(self,ctx):
-        """Martini-ping time"""
         t1 = time.perf_counter()
         async with ctx.typing():
             t2 = time.perf_counter()
-        await ctx.send(":ping_pong: Pong! {}ms".format(round((t2-t1)*1000)))
+        await ctx.send(f":ping_pong: Pong! {(round((t2-t1)*1000))}ms")
 
     @commands.command(pass_context=True)
     async def 핑(self,ctx):
-        """Korean-Martini-ping time"""
         t1 = time.perf_counter()
         async with ctx.typing():
             t2 = time.perf_counter()
-        await ctx.send(":ping_pong: 퐁! {}ms".format(round((t2-t1)*1000)))
+        await ctx.send(f":ping_pong: 퐁! {(round((t2-t1)*1000))}ms")
 
 def setup(bot):
     bot.add_cog(Ping(bot))

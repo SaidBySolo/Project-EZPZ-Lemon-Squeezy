@@ -8,13 +8,13 @@ class Dice(commands.Cog):
         self.bot = bot
 
     @commands.command(pass_context=True)
-    async def 주사위(self, ctx, number: int = 100):
+    async def 주사위(self, ctx, number: int = 6):
         author = ctx.author
         if number > 1:
             n = randint(1, number)
-            await ctx.send("{}님이 주사위를 굴려 🎲{}이(가) 나왔어요!".format(author.mention, n))
+            await ctx.send(f"{author.mention}님이 주사위를 굴려 🎲{n}이(가) 나왔어요!")
         else:
-            await ctx.send("{}님 1보다 큰 숫자를 주세요.".format(author.mention))
+            await ctx.send(f"{author.mention}님 1보다 큰 숫자를 주세요.")
 
 def setup(bot):
     bot.add_cog(Dice(bot))

@@ -4,7 +4,7 @@ import datetime
 import discord
 from discord.ext import commands
 
-    #미완성.
+#미완성.
 now = datetime.datetime.now()
 year = str(now.year)
 month = str(now.month)
@@ -22,6 +22,7 @@ class Lunch(commands.Cog):
         innam_school_menu = json.loads(innamResponse.text)
         await ctx.send(innam_school_menu)
 
+    #인천기계공업고등학교
     @commands.command()
     async def 인기공급식(self, ctx):
         ingiUrl = 'https://schoolmenukr.ml/api/middle/E100000261?year=' + year + '&month=' + month + '&date=' + date + '&hideAllergy=true'
@@ -29,6 +30,7 @@ class Lunch(commands.Cog):
         ingi_school_menu = json.loads(ingiResponse.text)
         await ctx.send(ingi_school_menu)
 
+    #인천고등학교
     @commands.command()
     async def 인고급식(self, ctx):
         incheonUrl = 'https://schoolmenukr.ml/api/middle/E100000258?year=' + year + '&month=' + month + '&date=' + date + '&hideAllergy=true'
