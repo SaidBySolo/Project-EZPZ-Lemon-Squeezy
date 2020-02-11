@@ -24,6 +24,10 @@ class General(commands.Cog):
             await ctx.send(embed = react_embed)
         else:
             await ctx.send("엠베드가 존재하지않슴니다. 관리자에게 문의해주세요")
+    #Hello
+    @commands.command()
+    async def 안녕(self,ctx):
+        await ctx.send("안녕하세요!")
             
 def setup(bot):
     bot.add_cog(General(bot))
