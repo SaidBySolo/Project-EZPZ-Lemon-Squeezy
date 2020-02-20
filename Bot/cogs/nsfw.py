@@ -8,6 +8,7 @@ class NSFW(commands.Cog):
         self.bot = bot
     
     @commands.command()
+    @commands.is_nsfw( ) 
     async def 히요비넘버(self, ctx, index):
         try:
             index = int(index)

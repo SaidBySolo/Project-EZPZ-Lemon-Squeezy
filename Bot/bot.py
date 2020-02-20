@@ -18,7 +18,8 @@ initial_extensions = ['cogs.general',
                     'cogs.dice',
                     'cogs.nsfw',
                     'cogs.info',
-                    'cogs.events']
+                    'cogs.events',
+                    'cogs.faq']
 
 #cogs
 if __name__ == '__main__':
@@ -83,7 +84,7 @@ async def on_ready():
     print("======================")
 
     # Status
-    game = discord.Game("v.1.0.1, !도움말")
+    game = discord.Game("v.1.0.1, +도움말")
     await bot.change_presence(status=discord.Status.online, activity=game)
 
 bot.run(token)
