@@ -19,17 +19,17 @@ class Vote(commands.Cog):
         optionEmojis = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"]
 
         desc = []
-        desc.append("제목: {}".format(question))
+        desc.append(f"제목: {question}")
         optionCnt = 0
         for option in options:
-            desc.append("{}: {}".format(optionEmojis[optionCnt], options[optionCnt]))
+            desc.append(f"{optionEmojis[optionCnt]}: {options[optionCnt]}")
             optionCnt += 1
         desc = "\n".join(desc)
         em = discord.Embed(colour=0xDEADBF, description=desc)
         name = ctx.author.nick
         if not name:
             name = ctx.author.name
-        em.set_footer(text="생성자:{}".format(name), icon_url=ctx.author.avatar_url)
+        em.set_footer(text=f"생성자:{name}", icon_url=ctx.author.avatar_url)
         msg = await ctx.send(embed=em)
 
         optionEmojis = optionEmojis[:len(options)]
@@ -44,12 +44,12 @@ class Vote(commands.Cog):
         for reaction in msg.reactions:
             reactions[reaction.emoji] = reaction.count
 
-        result = discord.Embed(colour=0xDEADBF, title="결과:{}".format(question))
+        result = discord.Embed(colour=0xDEADBF, title=f"결과:{question}")
         optionCnt = 0
         for option in options:
             result.add_field(
-                name="{}: {}".format(optionEmojis[optionCnt], options[optionCnt]),
-                value="{}표".format(reactions.get(optionEmojis[optionCnt]) - 1)
+                name=f"{optionEmojis[optionCnt]}: {options[optionCnt]}",
+                value=f"{reactions.get(optionEmojis[optionCnt]) - 1}표"
             )
             optionCnt += 1
 

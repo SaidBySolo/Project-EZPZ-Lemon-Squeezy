@@ -1,4 +1,4 @@
-from .botembed import BotEmbed
+from .embedinfo import BotEmbed
 
 class UserDict:
 #User Embed
