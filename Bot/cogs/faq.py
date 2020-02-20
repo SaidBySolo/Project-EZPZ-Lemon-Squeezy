@@ -8,9 +8,9 @@ class FAQ(commands.Cog):
 
     @commands.Cog.listener()
     @commands.dm_only()
-    async def on_message(self, message):
+    async def on_message(self, message, ctx):
         if not message.guild:
-            await message.send("test")
+            await ctx.send("test")
         
 def setup(bot):
     bot.add_cog(FAQ(bot))
