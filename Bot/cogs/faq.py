@@ -8,9 +8,9 @@ class FAQ(commands.Cog):
 
     @commands.Cog.listener()
     @commands.dm_only()
-    async def on_message(self, message):
+    async def on_message(self, ctx, message):
         if message.content.startswith("ping"):
-            await self.bot.send_message(message.channel, "Pong")
+            await ctx.send(message.channel, "Pong")
 
 
 def setup(bot):
