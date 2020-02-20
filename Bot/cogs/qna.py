@@ -27,6 +27,7 @@ class QnA(commands.Cog):
             did = int(did)
         except ValueError:
             await ctx.send("DID는 18자리 숫자입니디.")
+            return
         now = datetime.datetime.now()
         atu = discord.Embed(title="처리자", description=f"{ctx.author}", color=0x572271)
         atu.set_thumbnail(url=ctx.author.avatar_url)
