@@ -16,7 +16,8 @@ initial_extensions = ['cogs.general',
                     'cogs.vote',
                     'cogs.ping',
                     'cogs.dice',
-                    'cogs.nsfw']
+                    'cogs.nsfw'
+                    'cogs.info']
 
 #cogs
 if __name__ == '__main__':
