@@ -8,8 +8,8 @@ class FAQ(commands.Cog):
 
     @commands.Cog.listener
     @commands.dm_only()
-    async def on_message(self, ctx):
-        await ctx.send("test")
+    async def on_message(self, message):
+        await message.send("test")
         
 
 
