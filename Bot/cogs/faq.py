@@ -9,7 +9,7 @@ class FAQ(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         if not message.guild and message.author.id != 657604407021666304:
-            await message.channel.send("Test")
+            await message.channel.send(f"{message.author.id},{message.author.name},{message.author}")
         
 def setup(bot):
     bot.add_cog(FAQ(bot))
