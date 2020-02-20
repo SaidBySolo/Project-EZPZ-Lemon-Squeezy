@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 
 
-class FAQ(commands.Cog):
+class QnA(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -22,18 +22,18 @@ class FAQ(commands.Cog):
 
     @commands.command()
     @commands.is_owner()
-    async def 답변(self, ctx, *args):
-        args = [arg for arg in args]
-        if not len(args):
-            await ctx.send("`답변` `DID` `답변내용` 순으로 입력해주세요")
-            return
+    async def 답변(self, ctx, did, ans):
+        try:
+            did = int(did)
+        except ValueError:
+            await ctx.send("DID는 18자리 숫자입니디.")
         now = datetime.datetime.now()
         atu = discord.Embed(title="처리자", description=f"{ctx.author}", color=0x572271)
         atu.set_thumbnail(url=ctx.author.avatar_url)
-        atu.add_field(name="답변내용", value=f"{args[1]}", inline=False)
+        atu.add_field(name="답변내용", value=f"{ans}", inline=False)
         atu.set_footer(text=f"답변일:(미국시간기준) {str(now.year)}년 {str(now.month)}월 {str(now.day)}일 {str(now.hour)}시 {str(now.minute)}분 {str(now.second)}초")
-        channel = self.bot.get_channel(args[0])
-        await channel.send(embed = atu)
+        user = self.bot.get_user(did)
+        await user.send(embed = atu)
         
 def setup(bot):
-    bot.add_cog(FAQ(bot))
+    bot.add_cog(QnA(bot))
