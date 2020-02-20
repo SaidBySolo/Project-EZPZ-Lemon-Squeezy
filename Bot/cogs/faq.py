@@ -6,12 +6,11 @@ class FAQ(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     @commands.dm_only()
     async def on_message(self, message):
-        await message.send("test")
+        if not message.guild:
+            await message.send("test")
         
-
-
 def setup(bot):
     bot.add_cog(FAQ(bot))
