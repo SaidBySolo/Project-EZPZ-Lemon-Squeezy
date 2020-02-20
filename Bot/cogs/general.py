@@ -15,7 +15,10 @@ class General(commands.Cog):
     async def 제작현황(self, ctx):
         await ctx.send("제작중")
 
-    #Information command
+    @commands.command()
+    async def 개발진(self, ctx):
+        await ctx.send(embed = BotEmbed.Dev)
+
     #Hello
     @commands.command()
     async def 안녕(self,ctx):
@@ -23,7 +26,9 @@ class General(commands.Cog):
 
     @commands.command()
     async def 링크(self, ctx):
-        await ctx.send("https://discordapp.com/api/oauth2/authorize?client_id=657604407021666304&permissions=391232&scope=bot")
+        link = "https://discordapp.com/api/oauth2/authorize?client_id=657604407021666304&permissions=391232&scope=bot"
+        await ctx.send(f"{link}")
+
 
 def setup(bot):
     bot.add_cog(General(bot))

@@ -26,7 +26,7 @@ class Vote(commands.Cog):
             optionCnt += 1
         desc = "\n".join(desc)
         em = discord.Embed(colour=0xDEADBF, description=desc)
-        name = ctx.author.nick
+        name = ctx.author.name
         if not name:
             name = ctx.author.name
         em.set_footer(text=f"생성자:{name}", icon_url=ctx.author.avatar_url)
