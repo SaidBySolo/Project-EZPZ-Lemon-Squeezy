@@ -133,8 +133,5 @@ dmypy.json
 .pyre/
 
 #ig
-<<<<<<< HEAD
 *.webm
-=======
-*.webm
->>>>>>> master
+
