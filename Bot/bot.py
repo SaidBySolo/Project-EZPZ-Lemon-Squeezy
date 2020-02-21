@@ -3,7 +3,7 @@ import youtube_dl
 from discord.ext import commands
 
 #prefix
-bot = commands.Bot(command_prefix='?')
+bot = commands.Bot(command_prefix='&')
 
 #remove defalt help command
 bot.remove_command ('help')
@@ -85,7 +85,7 @@ async def on_ready():
     print("======================")
 
     # Status
-    game = discord.Game("v.1.0.1, ?도움말")
+    game = discord.Game("v.1.0.1, &도움말")
     await bot.change_presence(status=discord.Status.online, activity=game)
 
 bot.run(token)
