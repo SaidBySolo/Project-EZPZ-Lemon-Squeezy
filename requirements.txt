@@ -4,3 +4,4 @@ bs4
 youtube-dl
 asyncio
 ffmpeg
+pynacl
