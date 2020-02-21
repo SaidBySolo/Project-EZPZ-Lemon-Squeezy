@@ -1,8 +1,9 @@
 import discord
+import youtube_dl
 from discord.ext import commands
 
 #prefix
-bot = commands.Bot(command_prefix='+')
+bot = commands.Bot(command_prefix='?')
 
 #remove defalt help command
 bot.remove_command ('help')
@@ -19,7 +20,8 @@ initial_extensions = ['cogs.general',
                     'cogs.nsfw',
                     'cogs.info',
                     'cogs.events',
-                    'cogs.qna']
+                    'cogs.qna',
+                    'cogs.music']
 
 #cogs
 if __name__ == '__main__':
@@ -71,9 +73,7 @@ async def reloadall(ctx):
         except Exception as e:
             await ctx.send(f"{extension} 리로드 실패")
             raise e
-
-    
-
+        
 #login,status
 @bot.event
 async def on_ready():
