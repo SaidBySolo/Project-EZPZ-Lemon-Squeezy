@@ -1,4 +1,3 @@
-pip
 discord
 requests
 bs4 
