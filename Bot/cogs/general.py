@@ -1,6 +1,7 @@
 from .etc.botembed import BotEmbed
 import discord
 from discord.ext import commands
+import asyncio
 
 class General(commands.Cog):
     def __init__(self, bot):
@@ -17,7 +18,7 @@ class General(commands.Cog):
 
     @commands.command()
     async def 개발진(self, ctx):
-        await ctx.send(embed = BotEmbed.Dev)
+        await ctx.send(embed = BotEmbed.Dev)        
 
     #Hello
     @commands.command()
