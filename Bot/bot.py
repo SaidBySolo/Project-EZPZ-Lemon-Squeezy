@@ -21,7 +21,8 @@ initial_extensions = ['cogs.general',
                     'cogs.info',
                     'cogs.events',
                     'cogs.qna',
-                    'cogs.music']
+                    'cogs.music',
+                    'cogs.admin']
 
 #cogs
 if __name__ == '__main__':
