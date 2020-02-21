@@ -13,7 +13,7 @@ class BotEmbed:
     Helps.add_field(name="내정보", value="자신의 디스코드 정보를 보여줍니다.", inline=False)
     Helps.add_field(name="주사위", value="기본값은 6이며, 숫자를 임의로 정할수있습니다.", inline=False)
     Helps.add_field(name="핑", value="봇의 응답시간을 보여줍니다 미국리전으로 평균적으로 45ms정도입니다.", inline=False)
-    Helps.add_field(name="투표", value="투표기능입니다. 자세한건 +투표를 사용해주세요", inline=False)
+    Helps.add_field(name="투표", value="투표기능입니다. 자세한건 ?투표를 사용해주세요", inline=False)
     Helps.add_field(name="nsdw기능관련", value="이기능은 제한되어있습니다.", inline=False)
     Helps.add_field(name="연락처", value="SaidBySolo : 라고솔로가말했습니다#1234", inline=False)
     Helps.set_footer(text="ver 1.0.1 제작 - Sabin,SaidBySolo")
