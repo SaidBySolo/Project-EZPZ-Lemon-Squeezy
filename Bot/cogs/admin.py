@@ -11,7 +11,7 @@ class Admin(commands.Cog):
     async def 삭제(self, ctx, number: int = 2):
         author = ctx.author
         if number < 100:
-            await ctx.channel.purge(limit = number)
+            await ctx.channel.purge(limit = number + 1)
             delmsg = await ctx.send(f"{author.mention}님이 메시지{number}개를삭제했어요")
             await asyncio.sleep(5)
             await delmsg.delete()
