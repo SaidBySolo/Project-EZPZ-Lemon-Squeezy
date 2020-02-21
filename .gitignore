@@ -2,6 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 
 # C extensions
 *.so
@@ -129,4 +133,8 @@ dmypy.json
 .pyre/
 
 #ig
+<<<<<<< HEAD
 *.webm
+=======
+*.webm
+>>>>>>> master

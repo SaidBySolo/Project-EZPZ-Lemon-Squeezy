@@ -9,7 +9,7 @@ bot = commands.Bot(command_prefix='?')
 bot.remove_command ('help')
 
 #paste token
-token = "NjU3NjA0NDA3MDIxNjY2MzA0.Xf-JVw.Krgxt54ycfRKhRs0oQ5vSf7PLwI"
+token = "NjU3NjA0NDA3MDIxNjY2MzA0.Xk96RQ.L6v7HCKIdesqrqiiZhdVvK8SSyQ"
 
 #cogs import here
 initial_extensions = ['cogs.general',
