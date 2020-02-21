@@ -8,7 +8,7 @@ class BotEmbed:
     Helps.set_author(name="Project EZPZ Lemon Squeezy", icon_url="https://imgur.com/j0yodUO.png")
     Helps.set_thumbnail(url="https://imgur.com/ysG49Sc.png")
     Helps.add_field(name="봇 이름", value="Martini", inline=False)
-    Helps.add_field(name="접두사", value="+", inline=False)
+    Helps.add_field(name="접두사", value="?", inline=False)
     Helps.add_field(name="도움말", value="도움말창을 보여줍니다.", inline=False)
     Helps.add_field(name="내정보", value="자신의 디스코드 정보를 보여줍니다.", inline=False)
     Helps.add_field(name="주사위", value="기본값은 6이며, 숫자를 임의로 정할수있습니다.", inline=False)
