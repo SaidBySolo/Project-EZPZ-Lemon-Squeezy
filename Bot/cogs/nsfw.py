@@ -17,8 +17,8 @@ class NSFW(commands.Cog):
             return
 
         response = requests.get(f'https://hiyobi.me/info/{index}')
-        infohtml = response.text
-        soup = BeautifulSoup(infohtml, 'lxml')
+        readerhtml = response.text
+        soup = BeautifulSoup(readerhtml, 'lxml')
         table = soup.find('table')
         trs = table.find_all('tr')
         for title in soup.select('b'):
@@ -26,25 +26,33 @@ class NSFW(commands.Cog):
             if len(soup.findAll('tr')) == 5:
                 tags = [t.text for t in trs[:5]]
                 nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
+                nsfwser.add_field(name="링크", value=f'https://hiyobi.me/reader/{index}',  inline=False)
+                nsfwser.set_thumbnail(url=f'https://hiyobi.me/tn/{index}.jpg')
                 await ctx.send(embed = nsfwser)
             elif len(soup.findAll('tr')) == 4:
                 tags = [t.text for t in trs[:4]]
                 nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
+                nsfwser.add_field(name="링크", value=f'https://hiyobi.me/reader/{index}',  inline=False)
+                nsfwser.set_thumbnail(url=f'https://hiyobi.me/tn/{index}.jpg')
                 await ctx.send(embed = nsfwser)
             elif len(soup.findAll('tr')) == 3:
                 tags = [t.text for t in trs[:3]]
                 nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
+                nsfwser.add_field(name="링크", value=f'https://hiyobi.me/reader/{index}',  inline=False)
+                nsfwser.set_thumbnail(url=f'https://hiyobi.me/tn/{index}.jpg')
                 await ctx.send(embed = nsfwser)
             elif len(soup.findAll('tr')) == 2:
                 tags = [t.text for t in trs[:2]]
                 nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
+                nsfwser.add_field(name="링크", value=f'https://hiyobi.me/reader/{index}',  inline=False)
+                nsfwser.set_thumbnail(url=f'https://hiyobi.me/tn/{index}.jpg')
                 await ctx.send(embed = nsfwser)
         
     @commands.command()
     async def 히요비검색(self, ctx , *args):
         response = requests.get(f"https://hiyobi.me/search/{args}")
-        infohtml = response.text
-        soup = BeautifulSoup(infohtml, 'lxml')
+        readerhtml = response.text
+        soup = BeautifulSoup(readerhtml, 'lxml')
 
             
 def setup(bot):
