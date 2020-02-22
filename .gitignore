@@ -2,10 +2,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 
 # C extensions
 *.so
@@ -134,4 +130,5 @@ dmypy.json
 
 #ig
 *.webm
-
+*.m4a
+*.mp3
