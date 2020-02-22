@@ -19,6 +19,6 @@ class Admin(commands.Cog):
             delmsg2 = await ctx.send(f"{author.mention}님이 제한을 초과했습니다.")
             await asyncio.sleep(5)
             await delmsg2.delete()
-
+            
 def setup(bot):
     bot.add_cog(Admin(bot))
