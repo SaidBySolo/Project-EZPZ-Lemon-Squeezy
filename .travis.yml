@@ -11,4 +11,4 @@ install:
 - pip install Pynacl
 # command to run tests
 script:
-- pytest Bot/cogs/events.py
+- pytest test/test.py
