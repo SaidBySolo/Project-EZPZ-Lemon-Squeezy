@@ -34,7 +34,7 @@ class Weather(commands.Cog):
         wem.add_field(name="날씨", value=f'{cast}', inline=False)
         wem.add_field(name="최저/최고", value=f'{mintemp}℃/{maxtemp}℃', inline=False)
         wem.add_field(name="체감온도", value=f'{feeltemp}℃', inline=False)
-        wem.add_field(name="자외선", value=f'{sunnum} | {suninfo}', inline=True)
+        wem.add_field(name="자외선", value=f'{sunnum} | {suninfo}', inline=False)
         wem.add_field(name="미세먼지", value=f'{smalldust} | {smalldustinfo}', inline=True)
         wem.add_field(name="초미세먼지", value=f'{verysmalldust} | {verysmalldustinfo}', inline=True)
         wem.add_field(name="오존지수", value=f'{ozon} | {ozoninfo}', inline=True)
