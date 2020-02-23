@@ -3,5 +3,6 @@ requests
 bs4 
 youtube-dl
 asyncio
+lxml
 ffmpeg
 pynacl
