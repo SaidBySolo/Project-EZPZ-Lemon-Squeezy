@@ -25,8 +25,10 @@ class QnA(commands.Cog):
     async def 답변(self, ctx, did, *, ans):
         try:
             did = int(did)
+            if not did//10**17:
+                await ctx.send("DID는 18자리 숫자입니다.")
         except ValueError:
-            await ctx.send("DID는 18자리 숫자입니디.")
+            await ctx.send("숫자를 입력해주세요")
             return
         now = datetime.datetime.now()
         atu = discord.Embed(title="처리자", description=f"{ctx.author}", color=0x572271)
