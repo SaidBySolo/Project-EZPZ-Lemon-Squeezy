@@ -5,6 +5,10 @@ python:
 install: 
 - pip install discord
 - pip install requests
+- pip install bs4
+- pip install lxml
+- pip install asyncio
+- pip install Pynacl
 # command to run tests
 script:
-- pytest bot/cogs/events.py
+- pytest Bot/cogs/events.py
