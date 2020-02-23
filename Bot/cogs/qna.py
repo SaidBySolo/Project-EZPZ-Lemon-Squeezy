@@ -26,7 +26,7 @@ class QnA(commands.Cog):
         try:
             did = int(did)
             if not did//10**17:
-                await ctx.send("DID는 18자리 숫자입니디.")
+                await ctx.send("DID는 18자리 숫자입니다.")
         except ValueError:
             await ctx.send("숫자를 입력해주세요")
             return
