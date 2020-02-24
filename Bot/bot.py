@@ -18,6 +18,7 @@ initial_extensions = ['cogs.' + x[:-3] for x in os.listdir("Bot/cogs") if x[-3:]
 if __name__ == '__main__':
     for extension in initial_extensions:
         bot.load_extension(extension)
+        
 #load
 @bot.command()
 @commands.is_owner()
@@ -72,6 +73,10 @@ async def on_ready():
     print("Login.. : ")
     print(bot.user.name)
     print(bot.user.id)
+    print("======================")
+    print(f"{discord.version_info}".)
+    print(f"이용하는 서버:{bot.servers}")
+    print(f"{len(set(bot.get_all_members()))}명이 사용중.")
     print("======================")
 
     # Status

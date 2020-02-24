@@ -11,4 +11,4 @@ install:
 - pip install Pynacl
 # command to run tests
 script:
-- pytest test/test.py
+- pytest Bot/test.py
