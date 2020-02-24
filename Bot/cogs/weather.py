@@ -8,7 +8,7 @@ class Weather(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def 날씨(self, ctx, location):
+    async def 날씨(self, ctx, *, location):
         response = requests.get(f'https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query={location}+날씨')
         readerhtml = response.text
         soup = BeautifulSoup(readerhtml, 'lxml')
