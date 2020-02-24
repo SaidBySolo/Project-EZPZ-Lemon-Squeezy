@@ -1,5 +1,4 @@
 import discord
-import youtube_dl
 from discord.ext import commands
 
 #prefix
@@ -22,7 +21,8 @@ initial_extensions = ['cogs.general',
                     'cogs.events',
                     'cogs.qna',
                     'cogs.music',
-                    'cogs.admin']
+                    'cogs.admin',
+                    'cogs.weather']
 
 #cogs
 if __name__ == '__main__':

@@ -49,10 +49,11 @@ class NSFW(commands.Cog):
                 await ctx.send(embed = nsfwser)
         
     @commands.command()
-    async def 히요비검색(self, ctx , *args):
-        response = requests.get(f"https://hiyobi.me/search/{args}")
+    async def 히요비리스트(self, ctx, num):
+        response = requests.get(f"https://hiyobi.me/list/{num}")
         readerhtml = response.text
         soup = BeautifulSoup(readerhtml, 'lxml')
+        soup.find_all('div', class_='gallery-content row')
 
             
 def setup(bot):

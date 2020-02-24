@@ -22,7 +22,7 @@ class QnA(commands.Cog):
 
     @commands.command()
     @commands.is_owner()
-    async def 답변(self, ctx, did, ans):
+    async def 답변(self, ctx, did, *, ans):
         try:
             did = int(did)
             if not did//10**17:
