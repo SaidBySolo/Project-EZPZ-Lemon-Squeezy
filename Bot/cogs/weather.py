@@ -29,7 +29,7 @@ class Weather(commands.Cog):
         ozon = data2[2].find('span',class_='num').text
         ozoninfo = data2[2].find(text=True, recursive=False)
         #=============================================
-        wem = discord.Embed(color=0x563931, title='날씨', description = f'{infolo}의 현재날씨입니다.' )
+        wem = discord.Embed(color=0x262131, title='날씨', description = f'{infolo}의 현재날씨입니다.' )
         wem.add_field(name="현재온도", value=f'{nowtemp}℃', inline=False)
         wem.add_field(name="날씨", value=f'{cast}', inline=False)
         wem.add_field(name="최저/최고", value=f'{mintemp}℃/{maxtemp}℃', inline=False)
