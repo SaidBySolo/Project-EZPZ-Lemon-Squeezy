@@ -74,8 +74,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print("======================")
-    print(f"{discord.version_info}".)
-    print(f"이용하는 서버:{bot.servers}")
+    print(f"{discord.version_info}")
     print(f"{len(set(bot.get_all_members()))}명이 사용중.")
     print("======================")
 
