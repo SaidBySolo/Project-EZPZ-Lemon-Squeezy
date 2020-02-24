@@ -1,11 +1,6 @@
-def test_get_helloworld():
-	assert 'hello world' == get_helloworld()
+from ..Bot import bot
 
-def get_helloworld():
-	return 'hello world'
-
-def main():
-	print(get_helloworld())
-
-if __name__ == '__main__':
-	main()
+def test_load_cog():
+    bot = bot.initialize()
+    failed_cogs = bot.load_cogs(bot)
+    assert(len(failed_cogs) == 0)
