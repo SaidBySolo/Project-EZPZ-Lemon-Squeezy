@@ -19,7 +19,7 @@ class Weather(commands.Cog):
         maxtemp = soup.find('span', class_='max').find('span', class_= 'num').text
         feeltemp = soup.find('span', class_='sensible').find('em').find('span', class_='num').text
         sunnum = soup.find('span', class_='indicator').find('span', class_='num').text
-        suninfo =soup.find('span', class_='indicator').find('').find(text=True, recursive=False)
+        suninfo = soup.find('span', class_='indicator').find('').find(text=True, recursive=False)
         data1 = soup.find('div', class_='detail_box')
         data2 = data1.findAll('dd')
         smalldust = data2[0].find('span', class_='num').text
