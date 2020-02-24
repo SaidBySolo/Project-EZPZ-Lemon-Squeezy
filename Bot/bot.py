@@ -11,8 +11,12 @@ bot.remove_command ('help')
 #paste token
 token = "NjU3NjA0NDA3MDIxNjY2MzA0.Xk96RQ.L6v7HCKIdesqrqiiZhdVvK8SSyQ"
 
-#cogs import here
-initial_extensions = ['cogs.' + x[:-3] for x in os.listdir("./Bot/cogs") if x[-3:] == ".py" if x[-3:] == ".py" and not x.startswith("__")]
+#cogs locate
+try:
+    initial_extensions = ['cogs.' + x[:-3] for x in os.listdir("cogs") if x[-3:] == ".py" and not x.startswith("__")]
+except Exception as e:
+    initial_extensions = ['cogs.' + x[:-3] for x in os.listdir("./Project-EZPZ-Lemon-Squeezy/Bot/cogs") if x[-3:] == ".py" and not x.startswith("__")]
+    
 
 #cogs
 if __name__ == '__main__':
