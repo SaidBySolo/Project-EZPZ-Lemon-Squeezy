@@ -69,7 +69,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
             # take first item from a playlist
             data = data['entries'][0]
 
-        await ctx.send(f'```ini\n[Added {data["title"]} to the Queue.]\n```', delete_after=15)
+        await ctx.send(f'```ini\n[{data["title"]}를 대기열에 추가합니다.]\n```', delete_after=15)
 
         if download:
             source = ytdl.prepare_filename(data)
@@ -135,7 +135,7 @@ class MusicPlayer:
                 try:
                     source = await YTDLSource.regather_stream(source, loop=self.bot.loop)
                 except Exception as e:
-                    await self._channel.send(f'There was an error processing your song.\n'
+                    await self._channel.send(f'노래를 준비하는데 오류가발생했습니다.\n'
                                              f'```css\n[{e}]\n```')
                     continue
 
@@ -143,7 +143,7 @@ class MusicPlayer:
             self.current = source
 
             self._guild.voice_client.play(source, after=lambda _: self.bot.loop.call_soon_threadsafe(self.next.set))
-            self.np = await self._channel.send(f'**Now Playing:** `{source.title}` requested by '
+            self.np = await self._channel.send(f'**Now Playing:** `{source.title}` 요청자: '
                                                f'`{source.requester}`')
             await self.next.wait()
 
@@ -192,12 +192,12 @@ class Music(commands.Cog):
         """A local error handler for all errors arising from commands in this cog."""
         if isinstance(error, commands.NoPrivateMessage):
             try:
-                return await ctx.send('This command can not be used in Private Messages.')
+                return await ctx.send('DM채널에서는 사용할수없는 명령어에요')
             except discord.HTTPException:
                 pass
         elif isinstance(error, InvalidVoiceChannel):
-            await ctx.send('Error connecting to Voice Channel. '
-                           'Please make sure you are in a valid channel or provide me with one')
+            await ctx.send('음성채널에 접속하는데 문제가 발생했어요'
+                           '유효한 음성채널인지 확인해주세요.')
 
         print('Ignoring exception in command {}:'.format(ctx.command), file=sys.stderr)
         traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
@@ -226,7 +226,7 @@ class Music(commands.Cog):
             try:
                 channel = ctx.author.voice.channel
             except AttributeError:
-                raise InvalidVoiceChannel('No channel to join. Please either specify a valid channel or join one.')
+                raise InvalidVoiceChannel('참여할 채널이 없습니다. 유효한 채널을 지정하거나 한곳에 접속해주세요.')
 
         vc = ctx.voice_client
 
@@ -277,12 +277,12 @@ class Music(commands.Cog):
         vc = ctx.voice_client
 
         if not vc or not vc.is_playing():
-            return await ctx.send('I am not currently playing anything!', delete_after=20)
+            return await ctx.send('현재 재생중인 노래가없습니다.', delete_after=20)
         elif vc.is_paused():
             return
 
         vc.pause()
-        await ctx.send(f'**`{ctx.author}`**: Paused the song!')
+        await ctx.send(f'**`{ctx.author}`**가 노래를 일시중지했어요.')
 
     @commands.command(name='resume')
     async def resume_(self, ctx):
@@ -290,12 +290,12 @@ class Music(commands.Cog):
         vc = ctx.voice_client
 
         if not vc or not vc.is_connected():
-            return await ctx.send('I am not currently playing anything!', delete_after=20)
+            return await ctx.send('현재 재생중인 노래가없습니다.', delete_after=20)
         elif not vc.is_paused():
             return
 
         vc.resume()
-        await ctx.send(f'**`{ctx.author}`**: Resumed the song!')
+        await ctx.send(f'**`{ctx.author}`**가 노래를 재생했어요.')
 
     @commands.command(name='skip')
     async def skip_(self, ctx):
@@ -303,7 +303,7 @@ class Music(commands.Cog):
         vc = ctx.voice_client
 
         if not vc or not vc.is_connected():
-            return await ctx.send('I am not currently playing anything!', delete_after=20)
+            return await ctx.send('현재 재생중인 노래가없습니다.', delete_after=20)
 
         if vc.is_paused():
             pass
@@ -311,7 +311,7 @@ class Music(commands.Cog):
             return
 
         vc.stop()
-        await ctx.send(f'**`{ctx.author}`**: Skipped the song!')
+        await ctx.send(f'**`{ctx.author}`**가 노래를 스킵했어요.')
 
     @commands.command(name='queue', aliases=['q', 'playlist'])
     async def queue_info(self, ctx):
@@ -319,11 +319,11 @@ class Music(commands.Cog):
         vc = ctx.voice_client
 
         if not vc or not vc.is_connected():
-            return await ctx.send('I am not currently connected to voice!', delete_after=20)
+            return await ctx.send('현재 음성채널에 접속해있지 않습니다.', delete_after=20)
 
         player = self.get_player(ctx)
         if player.queue.empty():
-            return await ctx.send('There are currently no more queued songs.')
+            return await ctx.send('대기열에 더이상 노래가 없어요.')
 
         # Grab up to 5 entries from the queue...
         upcoming = list(itertools.islice(player.queue._queue, 0, 5))
@@ -339,11 +339,11 @@ class Music(commands.Cog):
         vc = ctx.voice_client
 
         if not vc or not vc.is_connected():
-            return await ctx.send('I am not currently connected to voice!', delete_after=20)
+            return await ctx.send('현재 음성채널에 접속해있지 않습니다.', delete_after=20)
 
         player = self.get_player(ctx)
         if not player.current:
-            return await ctx.send('I am not currently playing anything!')
+            return await ctx.send('현재 재생중인 노래가없습니다.')
 
         try:
             # Remove our previous now_playing message.
@@ -352,7 +352,7 @@ class Music(commands.Cog):
             pass
 
         player.np = await ctx.send(f'**Now Playing:** `{vc.source.title}` '
-                                   f'requested by `{vc.source.requester}`')
+                                   f'요청자: `{vc.source.requester}`')
 
     @commands.command(name='volume', aliases=['vol'])
     async def change_volume(self, ctx, *, vol: float):
@@ -365,10 +365,10 @@ class Music(commands.Cog):
         vc = ctx.voice_client
 
         if not vc or not vc.is_connected():
-            return await ctx.send('I am not currently connected to voice!', delete_after=20)
+            return await ctx.send('현재 음성채널에 접속해있지 않습니다.', delete_after=20)
 
         if not 0 < vol < 101:
-            return await ctx.send('Please enter a value between 1 and 100.')
+            return await ctx.send('1~100사이의 숫자를 입력해주세요')
 
         player = self.get_player(ctx)
 
@@ -376,7 +376,7 @@ class Music(commands.Cog):
             vc.source.volume = vol / 100
 
         player.volume = vol / 100
-        await ctx.send(f'**`{ctx.author}`**: Set the volume to **{vol}%**')
+        await ctx.send(f'**`{ctx.author}`**가 볼륨을**{vol}%**로 설정했어요.')
 
     @commands.command(name='stop')
     async def stop_(self, ctx):
@@ -387,7 +387,7 @@ class Music(commands.Cog):
         vc = ctx.voice_client
 
         if not vc or not vc.is_connected():
-            return await ctx.send('I am not currently playing anything!', delete_after=20)
+            return await ctx.send('현재 재생중인 노래가없습니다.', delete_after=20)
 
         await self.cleanup(ctx.guild)
 
