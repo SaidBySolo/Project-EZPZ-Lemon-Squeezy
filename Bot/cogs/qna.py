@@ -16,9 +16,9 @@ class QnA(commands.Cog):
             qtu.add_field(name="문의자", value=f"{message.author}", inline=False)
             qtu.add_field(name="문의내용", value=f"{message.content}", inline=False)
             qtu.set_footer(text=f"문의일:(미국시간기준) {str(now.year)}년 {str(now.month)}월 {str(now.day)}일 {str(now.hour)}시 {str(now.minute)}분 {str(now.second)}초")
-            await message.channel.send("문의가 정상적으로 처리되었습니다.")
+            await message.channel.send("문의가 정상적으로 처리되었습니다.", delete_after= 5)
             channel = self.bot.get_channel(680105593817661486)
-            await channel.send(embed = qtu, delete_after= 5)
+            await channel.send(embed = qtu)
 
     @commands.command()
     @commands.is_owner()
