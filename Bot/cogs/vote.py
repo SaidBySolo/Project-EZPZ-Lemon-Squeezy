@@ -36,7 +36,7 @@ class Vote(commands.Cog):
         for emoji in optionEmojis:
             await msg.add_reaction(emoji)
 
-        await asyncio.sleep(15)
+        await asyncio.sleep(30)
 
         msg = await ctx.fetch_message(msg.id)
 
