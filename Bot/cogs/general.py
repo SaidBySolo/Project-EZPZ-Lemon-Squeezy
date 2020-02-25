@@ -18,7 +18,11 @@ class General(commands.Cog):
 
     @commands.command()
     async def 개발진(self, ctx):
-        await ctx.send(embed = BotEmbed.Dev)        
+        await ctx.send(embed = BotEmbed.Dev)
+
+    @commands.command()  
+    async def 문의(self, ctx):
+        await ctx.send("문의는 저에게 DM!")
 
     #Hello
     @commands.command()
@@ -27,7 +31,7 @@ class General(commands.Cog):
 
     @commands.command()
     async def 링크(self, ctx):
-        link = "https://discordapp.com/api/oauth2/authorize?client_id=657604407021666304&permissions=391232&scope=bot"
+        link = "https://discordapp.com/api/oauth2/authorize?client_id=657604407021666304&permissions=70773824&scope=bot"
         await ctx.send(f"{link}")
 
 
