@@ -28,6 +28,12 @@ class Lunch(commands.Cog):
         elif "고등학교" in ctx.message.content:
             scclass = "high"
         lunchinfo = f"https://schoolmenukr.ml/api/{scclass}/{sccode}?year={year}&month={month}&date={date}&hideAllergy=true"
-
+        lunchResponse = requests.get(lunchinfo).json()  
+        lunchdict = lunchResponse.get('menu')
+        lunchchange = {**lunchdict[0]}
+        lunch = list(lunchchange.get('lunch'))
+        lunchembed = discord.Embed(color=0x192771, title=f"{scname}의 오늘급식입니다", description = "\n".join(lunch))
+        await ctx.send(embed = lunchembed)
+        
 def setup(bot):
     bot.add_cog(Lunch(bot))       
