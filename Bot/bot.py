@@ -86,4 +86,5 @@ async def on_ready():
     game = discord.Game("&도움말 | DM으로 문의 받는중 | Alpha v1.0.1")
     await bot.change_presence(status=discord.Status.online, activity=game)
 
+
 bot.run(token)
