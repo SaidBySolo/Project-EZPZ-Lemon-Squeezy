@@ -5,7 +5,7 @@ import datetime
 import discord
 from discord.ext import commands
 
-#미완성.
+#기능구현완료.
 now = datetime.datetime.now()
 year = str(now.year)
 month = str(now.month)
@@ -32,8 +32,12 @@ class Lunch(commands.Cog):
         lunchdict = lunchResponse.get('menu')
         lunchchange = {**lunchdict[0]}
         lunch = list(lunchchange.get('lunch'))
-        lunchembed = discord.Embed(color=0x192771, title=f"{scname}의 오늘급식입니다", description = "\n".join(lunch))
-        await ctx.send(embed = lunchembed)
+        if any(lunch):
+            lunchembed = discord.Embed(color=0x192771, title=f"{scname}의 오늘급식입니다", description = "\n".join(lunch))
+            await ctx.send(embed = lunchembed)
+        else:
+            await ctx.send("오늘은급식이 없는거같아요 ㅠㅠ")
+        
         
 def setup(bot):
     bot.add_cog(Lunch(bot))       
