@@ -9,6 +9,8 @@ class Corona(commands.Cog):
 
     @commands.command()
     async def 코로나현황(self, ctx):
+        waitinfoembed = discord.Embed(title="서버로부터 가져오는중이에요!", description = "잠시만기다려주세요..")
+        waitinfo = await ctx.send(embed = waitinfoembed)
         response = requests.get('https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=코로나')
         readerhtml = response.text
         soup = BeautifulSoup(readerhtml, 'lxml')
@@ -26,7 +28,7 @@ class Corona(commands.Cog):
         coembed.add_field(name="격리해제", value=f'{free}명', inline=True)
         coembed.add_field(name="검사중", value=f'{checking}명', inline=True)
         coembed.add_field(name="사망자", value=f'{die}명', inline=True)
-        await ctx.send(embed = coembed)
+        await waitinfo.edit(embed = coembed)
 
 def setup(bot):
     bot.add_cog(Corona(bot))

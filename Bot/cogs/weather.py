@@ -9,6 +9,8 @@ class Weather(commands.Cog):
 
     @commands.command()
     async def 날씨(self, ctx, *, location):
+        waitinfoembed = discord.Embed(title="서버로부터 가져오는중이에요!", description = "잠시만기다려주세요..")
+        waitinfo = await ctx.send(embed = waitinfoembed)
         response = requests.get(f'https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query={location}+날씨')
         readerhtml = response.text
         soup = BeautifulSoup(readerhtml, 'lxml')
@@ -44,7 +46,7 @@ class Weather(commands.Cog):
         wem.add_field(name="미세먼지", value=f'{smalldust}  {smalldustinfo}', inline=True)
         wem.add_field(name="초미세먼지", value=f'{verysmalldust}  {verysmalldustinfo}', inline=True)
         wem.add_field(name="오존지수", value=f'{ozon}  {ozoninfo}', inline=True)
-        await ctx.send(embed = wem)
+        await waitinfo.edit(embed = wem)
         
 def setup(bot):
     bot.add_cog(Weather(bot))
