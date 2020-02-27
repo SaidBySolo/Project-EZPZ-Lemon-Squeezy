@@ -25,7 +25,7 @@ class BotEmbed:
     Helps.add_field(name="pause", value="재생중인 노래를 일시중지합니다.", inline=False)    
     Helps.add_field(name="resume", value="일시중지한 노래를 재생합니다.", inline=False)
     Helps.add_field(name="코로나현황", value="네이버에서 코로나 확진자등 정보를 가져옵니다.", inline=False)            
-    Helps.set_footer(text="ver 1.0.1 제작 - Sabin,SaidBySolo")
+    Helps.set_footer(text="ver 1.0.0 제작 - Sabin,SaidBySolo")
 
 
     #dev embed setting
@@ -36,7 +36,7 @@ class BotEmbed:
     Dev.add_field(name="메인개발진", value="Main Developer : Sabin, SaidBySolo ", inline=False)
     Dev.add_field(name="개발진", value="Developer : 김동규", inline=False)
     Dev.add_field(name="설명", value="2019년 12월 21일에 처음 커밋됬으며,\n현재는 비공개 리포지토리임", inline=False)
-    Dev.set_footer(text="ver 1.0.1")
+    Dev.set_footer(text="ver 1.1.0")
 
     
     

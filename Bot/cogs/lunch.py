@@ -1,10 +1,11 @@
 import requests
 import json
+from bs4 import BeautifulSoup
 import datetime
 import discord
 from discord.ext import commands
 
-#미완성.
+#기능구현완료.
 now = datetime.datetime.now()
 year = str(now.year)
 month = str(now.month)
@@ -13,30 +14,30 @@ date = str(now.day)
 class Lunch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    
-    #인천남고
-    @commands.command()
-    async def 인남급식(self,ctx):
-        innamUrl = 'https://schoolmenukr.ml/api/middle/E100000262?year=' + year + '&month=' + month + '&date=' + date + '&hideAllergy=true'
-        innamResponse = requests.get(innamUrl)
-        innam_school_menu = json.loads(innamResponse.text)
-        await ctx.send(innam_school_menu)
 
-    #인천기계공업고등학교
     @commands.command()
-    async def 인기공급식(self, ctx):
-        ingiUrl = 'https://schoolmenukr.ml/api/middle/E100000261?year=' + year + '&month=' + month + '&date=' + date + '&hideAllergy=true'
-        ingiResponse = requests.get(ingiUrl)
-        ingi_school_menu = json.loads(ingiResponse.text)
-        await ctx.send(ingi_school_menu)
-
-    #인천고등학교
-    @commands.command()
-    async def 인고급식(self, ctx):
-        incheonUrl = 'https://schoolmenukr.ml/api/middle/E100000258?year=' + year + '&month=' + month + '&date=' + date + '&hideAllergy=true'
-        incheonResponse = requests.get(incheonUrl)
-        incheon_school_menu = json.loads(incheonResponse.text)
-        await ctx.send(incheon_school_menu)
-
+    async def 급식(self, ctx, scname):
+        response = requests.get(f'https://schoolmenukr.ml/code/app?q={scname}')
+        readerhtml = response.text
+        soup = BeautifulSoup(readerhtml, 'lxml')
+        sccode = soup.find('div', class_='school-info').find('h3', class_='school-code').text
+        if "초등학교" in ctx.message.content:
+            scclass = "elementary"
+        elif "중학교" in ctx.message.content:
+            scclass = "middle"
+        elif "고등학교" in ctx.message.content:
+            scclass = "high"
+        lunchinfo = f"https://schoolmenukr.ml/api/{scclass}/{sccode}?year={year}&month={month}&date={date}&hideAllergy=true"
+        lunchResponse = requests.get(lunchinfo).json()  
+        lunchdict = lunchResponse.get('menu')
+        lunchchange = {**lunchdict[0]}
+        lunch = list(lunchchange.get('lunch'))
+        if any(lunch):
+            lunchembed = discord.Embed(color=0x192771, title=f"{scname}의 오늘급식입니다", description = "\n".join(lunch))
+            await ctx.send(embed = lunchembed)
+        else:
+            await ctx.send("오늘은급식이 없는거같아요 ㅠㅠ")
+        
+        
 def setup(bot):
     bot.add_cog(Lunch(bot))       

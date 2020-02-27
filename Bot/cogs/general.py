@@ -34,6 +34,5 @@ class General(commands.Cog):
         link = "https://discordapp.com/api/oauth2/authorize?client_id=657604407021666304&permissions=70773824&scope=bot"
         await ctx.send(f"{link}")
 
-
 def setup(bot):
     bot.add_cog(General(bot))
