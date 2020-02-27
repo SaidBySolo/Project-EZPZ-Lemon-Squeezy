@@ -17,6 +17,8 @@ class Lunch(commands.Cog):
 
     @commands.command()
     async def 급식(self, ctx, scname):
+        waitinfoembed = discord.Embed(title="서버로부터 가져오는중이에요!", description = "잠시만기다려주세요..")
+        waitinfo = await ctx.send(embed = waitinfoembed)
         response = requests.get(f'https://schoolmenukr.ml/code/app?q={scname}')
         readerhtml = response.text
         soup = BeautifulSoup(readerhtml, 'lxml')
@@ -34,9 +36,10 @@ class Lunch(commands.Cog):
         lunch = list(lunchchange.get('lunch'))
         if any(lunch):
             lunchembed = discord.Embed(color=0x192771, title=f"{scname}의 오늘급식입니다", description = "\n".join(lunch))
-            await ctx.send(embed = lunchembed)
+            await waitinfo.edit(embed = lunchembed)
         else:
-            await ctx.send("오늘은급식이 없는거같아요 ㅠㅠ")
+            nonlunch = discord.Embed(title="오늘 급식이 없는거같아요..")
+            await waitinfo.edit(embed = nonlunch)
         
         
 def setup(bot):

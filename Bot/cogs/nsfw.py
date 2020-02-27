@@ -15,7 +15,8 @@ class NSFW(commands.Cog):
         except ValueError:
             await ctx.send("숫자를 입력해주세요")
             return
-
+        waitinfoembed = discord.Embed(title="서버로부터 가져오는중이에요!", description = "잠시만기다려주세요..")
+        waitinfo = await ctx.send(embed = waitinfoembed)
         response = requests.get(f'https://hiyobi.me/info/{index}')
         readerhtml = response.text
         soup = BeautifulSoup(readerhtml, 'lxml')
@@ -28,25 +29,25 @@ class NSFW(commands.Cog):
                 nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
                 nsfwser.add_field(name="링크", value=f'https://hiyobi.me/reader/{index}',  inline=False)
                 nsfwser.set_thumbnail(url=f'https://hiyobi.me/tn/{index}.jpg')
-                await ctx.send(embed = nsfwser)
+                await waitinfo.edit(embed = nsfwser)
             elif len(soup.findAll('tr')) == 4:
                 tags = [t.text for t in trs[:4]]
                 nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
                 nsfwser.add_field(name="링크", value=f'https://hiyobi.me/reader/{index}',  inline=False)
                 nsfwser.set_thumbnail(url=f'https://hiyobi.me/tn/{index}.jpg')
-                await ctx.send(embed = nsfwser)
+                await waitinfo.edit(embed = nsfwser)
             elif len(soup.findAll('tr')) == 3:
                 tags = [t.text for t in trs[:3]]
                 nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
                 nsfwser.add_field(name="링크", value=f'https://hiyobi.me/reader/{index}',  inline=False)
                 nsfwser.set_thumbnail(url=f'https://hiyobi.me/tn/{index}.jpg')
-                await ctx.send(embed = nsfwser)
+                await waitinfo.edit(embed = nsfwser)
             elif len(soup.findAll('tr')) == 2:
                 tags = [t.text for t in trs[:2]]
                 nsfwser = discord.Embed(color=0x569271, title=nsfwtitle, description = "\n".join(tags))
                 nsfwser.add_field(name="링크", value=f'https://hiyobi.me/reader/{index}',  inline=False)
                 nsfwser.set_thumbnail(url=f'https://hiyobi.me/tn/{index}.jpg')
-                await ctx.send(embed = nsfwser)
+                await waitinfo.edit(embed = nsfwser)
         
     @commands.command()
     async def 히요비리스트(self, ctx, num):
