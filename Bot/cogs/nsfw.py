@@ -21,7 +21,7 @@ class NSFW(commands.Cog):
         readerhtml = response.text
         soup = BeautifulSoup(readerhtml, 'lxml')
         table = soup.find('table')
-        trs = table.find_all('tr')
+        trs = table.findAll('tr')
         for title in soup.select('b'):
             nsfwtitle = title.text
             if len(soup.findAll('tr')) == 5:
@@ -54,7 +54,7 @@ class NSFW(commands.Cog):
         response = requests.get(f"https://hiyobi.me/list/{num}")
         readerhtml = response.text
         soup = BeautifulSoup(readerhtml, 'lxml')
-        soup.find_all('div', class_='gallery-content row')
+        soup.findAll('div', class_='gallery-content row')
 
             
 def setup(bot):
