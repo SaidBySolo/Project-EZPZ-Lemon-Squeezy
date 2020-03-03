@@ -9,6 +9,11 @@ class Dice(commands.Cog):
 
     @commands.command(pass_context=True)
     async def 주사위(self, ctx, number: int = 6):
+        try:
+            number = int(number)
+        except ValueError:
+            await ctx.send("숫자를 입력해주세요")
+            return
         author = ctx.author
         if number > 1:
             n = randint(1, number)

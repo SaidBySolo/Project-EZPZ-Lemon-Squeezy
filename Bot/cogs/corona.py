@@ -25,7 +25,7 @@ class Corona(commands.Cog):
             coembed.add_field(name="검사중", value=f'{allinfokr[3].text}', inline=True)
             coembed.add_field(name="사망자", value=f'{allinfokr[2].text}', inline=True)
             await waitinfo.edit(embed = coembed)
-        except Exception as e:
+        except Exception:
             response = requests.get('https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=코로나')
             readerhtml = response.text
             soup = BeautifulSoup(readerhtml, 'lxml')
