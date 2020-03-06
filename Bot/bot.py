@@ -1,6 +1,7 @@
 import os
 import discord
 from discord.ext import commands
+from cogs.etc import Auth
 
 #prefix
 bot = commands.Bot(command_prefix='&')
@@ -9,7 +10,7 @@ bot = commands.Bot(command_prefix='&')
 bot.remove_command ('help')
 
 #paste token
-token = "NjU3NjA0NDA3MDIxNjY2MzA0.Xk96RQ.L6v7HCKIdesqrqiiZhdVvK8SSyQ"
+token = Auth.token
 
 #cogs locate
 try:

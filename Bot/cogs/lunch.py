@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import datetime
 import discord
 from discord.ext import commands
+from .etc.botembed import BotEmbed  
 
 #기능구현완료.
 now = datetime.datetime.now()
@@ -17,8 +18,7 @@ class Lunch(commands.Cog):
 
     @commands.command()
     async def 급식(self, ctx, scname):
-        waitinfoembed = discord.Embed(title="서버로부터 가져오는중이에요!", description = "잠시만기다려주세요..")
-        waitinfo = await ctx.send(embed = waitinfoembed)
+        waitinfo = await ctx.send(embed = BotEmbed.waitinfoembed)
         response = requests.get(f'https://schoolmenukr.ml/code/app?q={scname}')
         readerhtml = response.text
         soup = BeautifulSoup(readerhtml, 'lxml')

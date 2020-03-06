@@ -1,10 +1,12 @@
 from pixivpy3 import *
 import discord
 from discord.ext import commands
+from .etc.botembed import BotEmbed
+from .etc import Auth
 
 def Login():
     aapi = AppPixivAPI()
-    aapi.login("username", "password")
+    aapi.login(Auth._username, Auth._password)
     return aapi
 
 class Pixiv(commands.Cog):
@@ -18,8 +20,7 @@ class Pixiv(commands.Cog):
         except ValueError:
             await ctx.send("숫자를 입력해주세요")
             return
-        waitinfoembed = discord.Embed(title="서버로부터 가져오는중이에요!", description = "잠시만기다려주세요..")
-        waitinfo = await ctx.send(embed = waitinfoembed)
+        waitinfo = await ctx.send(embed = BotEmbed.waitinfoembed)
         json_result = Login().illust_detail(num)
         illust = json_result.illust
         pembed = discord.Embed(color=0x262131, title=illust.title, url=f'https://www.pixiv.net/en/artworks/{num}', description = illust.user.name)
@@ -29,8 +30,7 @@ class Pixiv(commands.Cog):
     @commands.command()
     @commands.is_nsfw()
     async def 픽시브태그(self, ctx, tag):
-        waitinfoembed = discord.Embed(title="서버로부터 가져오는중이에요!", description = "잠시만기다려주세요..")
-        waitinfo = await ctx.send(embed = waitinfoembed)
+        waitinfo = await ctx.send(embed = BotEmbed.waitinfoembed)
         json_result = Login().search_illust(tag, search_target='partial_match_for_tags')
         illust = json_result.illusts[0]
         pembed = discord.Embed(color=0x262131, title=illust.title, url=f'https://www.pixiv.net/en/artworks/{illust.id}', description = illust.user.name)
