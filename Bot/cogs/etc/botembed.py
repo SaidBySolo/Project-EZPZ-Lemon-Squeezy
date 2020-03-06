@@ -28,6 +28,9 @@ class BotEmbed:
     Helps.add_field(name="픽시브검색", value="픽시브에서 그림을 가져옵니다.")            
     Helps.set_footer(text="ver 1.1.1 제작 - Sabin,SaidBySolo")
 
+    #wait info
+    waitinfoembed = discord.Embed(title="서버로부터 가져오는중이에요!", description = "잠시만기다려주세요.....")
+    waitinfoembed.set_footer(text="이 메세지가 계속뜨고 지속된다면 명령어를 맞게,없는정보를 요청하였는지확인하고\n 그래도 이문제가 계속될경우 봇에게 DM해주세요.")
 
     #dev embed setting
     Dev = discord.Embed(title="개발진", color=0xffff80)

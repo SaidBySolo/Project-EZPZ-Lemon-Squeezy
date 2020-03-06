@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
 import requests
-from bs4 import BeautifulSoup    
+from bs4 import BeautifulSoup  
+from .etc.botembed import BotEmbed  
 
 class NSFW(commands.Cog):
     def __init__(self, bot):
@@ -15,8 +16,7 @@ class NSFW(commands.Cog):
         except ValueError:
             await ctx.send("숫자를 입력해주세요")
             return
-        waitinfoembed = discord.Embed(title="서버로부터 가져오는중이에요!", description = "잠시만기다려주세요..")
-        waitinfo = await ctx.send(embed = waitinfoembed)
+        waitinfo = await ctx.send(embed = BotEmbed.waitinfoembed)
         response = requests.get(f'https://hiyobi.me/info/{index}')
         readerhtml = response.text
         soup = BeautifulSoup(readerhtml, 'lxml')
