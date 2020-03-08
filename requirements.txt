@@ -6,3 +6,4 @@ asyncio
 lxml
 ffmpeg
 pynacl
+pixivpy3
