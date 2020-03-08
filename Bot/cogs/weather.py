@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
 import requests
-from bs4 import BeautifulSoup    
+from bs4 import BeautifulSoup
+from .etc.botembed import BotEmbed
 
 class Weather(commands.Cog):
     def __init__(self, bot):
@@ -9,8 +10,7 @@ class Weather(commands.Cog):
 
     @commands.command()
     async def 날씨(self, ctx, *, location):
-        waitinfoembed = discord.Embed(title="서버로부터 가져오는중이에요!", description = "잠시만기다려주세요..")
-        waitinfo = await ctx.send(embed = waitinfoembed)
+        waitinfo = await ctx.send(embed = BotEmbed.waitinfoembed)
         response = requests.get(f'https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query={location}+날씨')
         readerhtml = response.text
         soup = BeautifulSoup(readerhtml, 'lxml')
