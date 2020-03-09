@@ -48,6 +48,21 @@ class NSFW(commands.Cog):
                 nsfwser.add_field(name="링크", value=f'https://hiyobi.me/reader/{index}',  inline=False)
                 nsfwser.set_thumbnail(url=f'https://hiyobi.me/tn/{index}.jpg')
                 await waitinfo.edit(embed = nsfwser)
+
+    @commands.is_nsfw()
+    @commands.command()
+    async def 히요비검색(ctx, tag):
+        response = requests.get(f"https://hiyobi.me/search/{tag}")
+        readerhtml = response.text
+        soup = BeautifulSoup(readerhtml, 'lxml')
+        bigtitle = soup.findAll('div', class_='gallery-content row')
+        smalltitle = bigtitle[0].find('span')
+        esulttitle = smalltitle.find('b').text 
+        result = smalltitle.findAll('tr')   
+        tags = [t.text for t in result]
+        embed = discord.Embed(title = resulttitle, description ="\n".join(tags))
+        msgedit = await ctx.send(embed = embed)
+
         
     @commands.command()
     async def 히요비리스트(self, ctx, num):
