@@ -63,8 +63,8 @@ class NSFW(commands.Cog):
             titleall = soup.findAll('b')
             title = [str(index) +". " + t.text for index, t in enumerate(titleall, 1)]
             embed = discord.Embed(title = "검색된 정보입니다.", description ="\n".join(title))
-            msg = await waitinfo.edit(embed = embed)
-            await msg.add_reaction("🔍")
+            await waitinfo.edit(embed = embed)
+            await waitinfo.add_reaction("🔍")
             channel = ctx.channel
             def check(reaction, user):
                 return user == ctx.author and str(reaction.emoji) == '🔍'
@@ -84,7 +84,7 @@ class NSFW(commands.Cog):
                 result = smalltitle.findAll('tr')   
                 tags = [t.text for t in result]
                 embed = discord.Embed(title = resulttitle, description ="\n".join(tags))
-                await msg.edit(embed = embed)
+                await waitinfo.edit(embed = embed)
         except Exception as e:
             embed = discord.Embed(title = "오류가발생한거같아요..:(", description = e)
             embed.set_footer(text="다시 시도해보시고 지속될경우 봇에게DM 또는 개인적으로 컨택해주세요.")
@@ -95,19 +95,19 @@ class NSFW(commands.Cog):
         try:
             int(num)
         except ValueError:
-            await waitinfo.edit("정수로 입력해주세요", delete_after=5)
+            await ctx.send("정수로 입력해주세요", delete_after=5)
         else:
             try:
                 waitinfo = await ctx.send(embed = BotEmbed.waitinfoembed)
-                response = requests.get(f"https://hiyobi.me/search/{num}")
+                response = requests.get(f"https://hiyobi.me/list/{num}")
                 readerhtml = response.text
                 soup = BeautifulSoup(readerhtml, 'lxml')
                 bigresult = soup.findAll('div', class_='gallery-content row')
                 titleall = soup.findAll('b')
                 title = [str(index) +". " + t.text for index, t in enumerate(titleall, 1)]
                 embed = discord.Embed(title = "검색된 정보입니다.", description ="\n".join(title))
-                msg = await waitinfo.edit(embed = embed)
-                await msg.add_reaction("🔍")
+                await waitinfo.edit(embed = embed)
+                await waitinfo.add_reaction("🔍")
                 channel = ctx.channel
                 def check(reaction, user):
                     return user == ctx.author and str(reaction.emoji) == '🔍'
@@ -127,7 +127,7 @@ class NSFW(commands.Cog):
                     result = smalltitle.findAll('tr')   
                     tags = [t.text for t in result]
                     embed = discord.Embed(title = resulttitle, description ="\n".join(tags))
-                    await msg.edit(embed = embed)
+                    await waitinfo.edit(embed = embed)
             except Exception as e:
                 embed = discord.Embed(title = "오류가발생한거같아요..:(", description = e)
                 embed.set_footer(text="다시 시도해보시고 지속될경우 봇에게DM 또는 개인적으로 컨택해주세요.")
