@@ -8,8 +8,7 @@ from .etc.botembed import BotEmbed
 class NSFW(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    
-    #최적화 예정
+
     @commands.command()
     @commands.is_nsfw() 
     async def 히요비번호(self, ctx, index):
@@ -81,7 +80,8 @@ class NSFW(commands.Cog):
             embed = discord.Embed(title = "오류가발생한거같아요..:(", description = e)
             embed.set_footer(text="다시 시도해보시고 지속될경우 봇에게DM 또는 개인적으로 컨택해주세요.")
             await waitinfo.edit(embed = embed)
-        
+            
+    @commands.is_nsfw()   
     @commands.command()
     async def 히요비리스트(self, ctx, num):
         try:
