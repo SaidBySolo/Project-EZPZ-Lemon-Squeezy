@@ -40,7 +40,7 @@ class General(commands.Cog):
 
     @commands.command()
     async def 링크(self, ctx):
-        link = "https://discordapp.com/api/oauth2/authorize?client_id=657604407021666304&permissions=70773824&scope=bot"
+        link = "https://discordapp.com/api/oauth2/authorize?client_id=657604407021666304&permissions=3468352&scope=bot"
         await ctx.send(f"{link}")
 
 def setup(bot):
