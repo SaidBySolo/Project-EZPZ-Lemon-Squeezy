@@ -11,14 +11,16 @@ class General(commands.Cog):
     @commands.command()
     async def 도움말(self, ctx, *num):
         if not num:
-            await ctx.send(embed =BotEmbed.Helps)
-        elif num == str(2):
-            await ctx.send(embed = BotEmbed.Helps2)
-        elif num == str(3):
-            await ctx.send(embed = BotEmbed.Helps3)
+            await ctx.send(embed=BotEmbed.Helps)
+        elif num[0] == str(1):
+            await ctx.send(embed=BotEmbed.Helps1)
+        elif num[0] == str(2):
+            await ctx.send(embed=BotEmbed.Helps2)
+        elif num[0] == str(3):
+            await ctx.send(embed=BotEmbed.Helps3)
         else:
             await ctx.send("번호를 확인해주세요", delete_after=5)
-            
+    
     @commands.command()
     async def 제작현황(self, ctx):
         await ctx.send("제작중")

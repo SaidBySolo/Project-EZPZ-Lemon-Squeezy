@@ -8,12 +8,16 @@ class BotEmbed:
     Helps.set_author(name="Project EZPZ Lemon Squeezy", icon_url="https://imgur.com/j0yodUO.png")
     Helps.set_thumbnail(url="https://imgur.com/ysG49Sc.png")
     Helps.add_field(name="접두사", value="&", inline=False)
-    Helps.add_field(name="문의", value="문의방법을 설명해드립니다.", inline=False)
-    Helps.add_field(name="도움말", value="총 3페이지까지있습니다.", inline=False)
-    Helps.add_field(name="내정보", value="자신의 디스코드 정보를 보여줍니다.", inline=False)
-    Helps.add_field(name="주사위", value="기본값은 6이며, 숫자를 임의로 정할수있습니다.", inline=False)
-    Helps.add_field(name="핑", value="봇의 응답시간을 보여줍니다 미국리전으로 평균적으로 45ms정도입니다.", inline=False)
-    Helps.add_field(name="투표", value="투표기능입니다. 자세한건 &투표를 사용해주세요", inline=False)
+    Helps.add_field(name="사용법", value="이모지를눌러 가고싶은 페이지를 눌러주세요")
+
+
+    Helps1 = discord.Embed(title="도움말 1번째페이지", color=0xffff80)
+    Helps1.add_field(name="문의", value="문의방법을 설명해드립니다.", inline=False)
+    Helps1.add_field(name="도움말", value="총 3페이지까지있습니다.", inline=False)
+    Helps1.add_field(name="내정보", value="자신의 디스코드 정보를 보여줍니다.", inline=False)
+    Helps1.add_field(name="주사위", value="기본값은 6이며, 숫자를 임의로 정할수있습니다.", inline=False)
+    Helps1.add_field(name="핑", value="봇의 응답시간을 보여줍니다 미국리전으로 평균적으로 45ms정도입니다.", inline=False)
+    Helps1.add_field(name="투표", value="투표기능입니다. 자세한건 &투표를 사용해주세요", inline=False)
     
     Helps2 = discord.Embed(title="도움말 2번째페이지", color=0xffff80)
     Helps2.add_field(name="connect", value="음성채널 접속", inline=False) 

@@ -15,7 +15,7 @@ token = Auth.token
 #cogs locate
 try:
     initial_extensions = ['cogs.' + x[:-3] for x in os.listdir("cogs") if x[-3:] == ".py" and not x.startswith("__")]
-except Exception as e:
+except Exception:
     initial_extensions = ['cogs.' + x[:-3] for x in os.listdir("./Project-EZPZ-Lemon-Squeezy/Bot/cogs") if x[-3:] == ".py" and not x.startswith("__")]
     
 
