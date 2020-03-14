@@ -53,8 +53,8 @@ class NSFW(commands.Cog):
             reaction, user = await self.bot.wait_for('reaction_add', check=check)
             def check2(m):
                 return m.channel == channel 
+            await ctx.send("30초이내에 번호를 입력하세요", delete_after=5)
             try:
-                await ctx.send("30초이내에 번호를 입력하세요", delete_after=5)
                 response = await self.bot.wait_for('message', check=check2, timeout=30)
             except asyncio.TimeoutError:
                 await ctx.send("시간 초과입니다.")
@@ -98,9 +98,9 @@ class NSFW(commands.Cog):
                     return user == ctx.author and str(reaction.emoji) == '🔍'
                 reaction, user = await self.bot.wait_for('reaction_add', check=check)
                 def check2(m):
-                    return m.channel == channel 
+                    return m.channel == channel
+                await ctx.send("30초이내에 번호를 입력하세요", delete_after=5) 
                 try:
-                    await ctx.send("30초이내에 번호를 입력하세요", delete_after=5)
                     response = await self.bot.wait_for('message', check=check2, timeout=30)
                 except asyncio.TimeoutError:
                     await ctx.send("시간 초과입니다.")
