@@ -8,7 +8,7 @@ class BotEmbed:
     Helps.set_author(name="Project EZPZ Lemon Squeezy", icon_url="https://imgur.com/j0yodUO.png")
     Helps.set_thumbnail(url="https://imgur.com/ysG49Sc.png")
     Helps.add_field(name="접두사", value="&", inline=False)
-    Helps.add_field(name="사용법", value="이모지를눌러 가고싶은 페이지를 눌러주세요")
+    Helps.add_field(name="사용법", value="&도움말 (페이지) ex.&도움말 1")
 
 
     Helps1 = discord.Embed(title="도움말 1번째페이지", color=0xffff80)
