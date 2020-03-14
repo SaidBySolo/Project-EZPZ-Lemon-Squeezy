@@ -10,8 +10,11 @@ class General(commands.Cog):
     #commands
     @commands.command()
     async def 도움말(self, ctx):
-        await ctx.send(embed = BotEmbed.Helps)
-
+        helpmsg = await ctx.send(embed = BotEmbed.Helps)
+        optionEmojis = ["⬅️", "➡️"]
+        for emoji in optionEmojis:
+            await helpmsg.add_reaction(emoji)
+            
     @commands.command()
     async def 제작현황(self, ctx):
         await ctx.send("제작중")
