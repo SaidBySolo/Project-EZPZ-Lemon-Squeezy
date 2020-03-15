@@ -8,7 +8,7 @@ class Admin(commands.Cog):
     
     @commands.command()
     @commands.has_permissions(manage_messages=True)
-    async def 삭제(self, ctx, number: int = 2):
+    async def 삭제(self, ctx, number: int = 1):
         author = ctx.author
         if number < 101:
             await ctx.channel.purge(limit = number + 1)

@@ -12,6 +12,9 @@ bot.remove_command ('help')
 #paste token
 token = Auth.token
 
+#debug
+bot.load_extension('jishaku')
+
 #cogs locate
 try:
     initial_extensions = ['cogs.' + x[:-3] for x in os.listdir("cogs") if x[-3:] == ".py" and not x.startswith("__")]
