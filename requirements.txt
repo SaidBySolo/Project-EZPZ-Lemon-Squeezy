@@ -7,3 +7,4 @@ lxml
 ffmpeg
 pynacl
 pixivpy
+jishaku
