@@ -26,11 +26,17 @@ class NSFW(commands.Cog):
         smalltitle = bigresult.find('span')
         link = bigresult.find('a')['href']
         img = bigresult.find('img')['src']
-        result = smalltitle.findAll('tr')   
-        tags = [t.text for t in result]
-        embed = discord.Embed(url = link, title = title, description ="\n".join(tags))
-        embed.set_thumbnail(url=img)
-        await waitinfo.edit(embed = embed)
+        result = smalltitle.findAll('tr')  
+        if any(bigresult):
+            tags = [t.text for t in result]
+            embed = discord.Embed(url = link, title = title, description ="\n".join(tags))
+            embed.set_thumbnail(url=img)
+            await waitinfo.edit(embed = embed)
+        else:
+            embed = discord.Embed(title = "검색결과가 없는거같아요",description ="다시확인해주세요")
+            await waitinfo.edit(embed = embed)
+            await waitinfo.clear_reaction("🔍")
+
 
     @commands.is_nsfw()
     @commands.command()
