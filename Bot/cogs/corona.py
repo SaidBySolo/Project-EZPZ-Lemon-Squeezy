@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup 
 from .etc.botembed import BotEmbed   
 
-class Corona(commands.Cog):
+class Corona(commands.Cog)
     def __init__(self, bot):
         self.bot = bot
 

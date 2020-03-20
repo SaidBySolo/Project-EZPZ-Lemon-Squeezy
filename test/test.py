@@ -1,16 +1,10 @@
-import os
 import discord
 from discord.ext import commands
-
-bot = commands.Bot(command_prefix='&')
-
-initial_extensions = ['cogs.' + x[:-3] for x in os.listdir("./Bot/cogs") if x[-3:] == ".py" if x[-3:] == ".py" and not x.startswith("__")]
+import sys
+sys.path.append('..')
+from ..Bot import bot
 
 def testcogs():
-    if __name__ == '__main__':
-        for extension in initial_extensions:
-            bot.load_extension(extension)
-            assert(len(extension) == 0)
-
-
-
+    tsbot = commands.Bot(command_prefix='&')
+    failed_cogs = bot.load_cogs(tsbot)
+    assert(len(failed_cogs) == 0)

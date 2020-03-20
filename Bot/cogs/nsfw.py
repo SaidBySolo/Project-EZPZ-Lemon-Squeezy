@@ -67,17 +67,17 @@ class NSFW(commands.Cog):
                 else:
                     if ctx.author == response.author:
                         fetmsg = await ctx.fetch_message(response.id)
-                    smalltitle = bigresult[int(fetmsg.content) - 1].find('span')
-                    link = bigresult[int(fetmsg.content) - 1].find('a')['href']
-                    img = bigresult[int(fetmsg.content) - 1].find("img")["src"]
-                    resulttitle = smalltitle.find('b').text 
-                    result = smalltitle.findAll('tr')   
-                    tags = [t.text for t in result]
-                    embed = discord.Embed(url = link, title = resulttitle, description ="\n".join(tags))
-                    embed.set_thumbnail(url=img)
-                    await fetmsg.delete()
-                    await waitinfo.clear_reaction("🔍")
-                    await waitinfo.edit(embed = embed)
+                        smalltitle = bigresult[int(fetmsg.content) - 1].find('span')
+                        link = bigresult[int(fetmsg.content) - 1].find('a')['href']
+                        img = bigresult[int(fetmsg.content) - 1].find("img")["src"]
+                        resulttitle = smalltitle.find('b').text 
+                        result = smalltitle.findAll('tr')   
+                        tags = [t.text for t in result]
+                        embed = discord.Embed(url = link, title = resulttitle, description ="\n".join(tags))
+                        embed.set_thumbnail(url=img)
+                        await fetmsg.delete()
+                        await waitinfo.clear_reaction("🔍")
+                        await waitinfo.edit(embed = embed)
             else:
                 embed = discord.Embed(title = "검색결과가 없는거같아요",description ="다시확인해주세요")
                 await waitinfo.edit(embed = embed)
@@ -112,7 +112,7 @@ class NSFW(commands.Cog):
                         return user == ctx.author and str(reaction.emoji) == '🔍'
                     reaction, user = await self.bot.wait_for('reaction_add', check=check)
                     def check2(m):
-                        return m.channel == channel 
+                        return m.channel == channel
                     await ctx.send("30초이내에 번호를 입력하세요", delete_after=5)
                     try:
                         response = await self.bot.wait_for('message', check=check2, timeout=30)
@@ -121,17 +121,17 @@ class NSFW(commands.Cog):
                     else:
                         if ctx.author == response.author:
                             fetmsg = await ctx.fetch_message(response.id)
-                        smalltitle = bigresult[int(fetmsg.content) - 1].find('span')
-                        link = bigresult[int(fetmsg.content) - 1].find('a')['href']
-                        img = bigresult[int(fetmsg.content) - 1].find("img")["src"]
-                        resulttitle = smalltitle.find('b').text 
-                        result = smalltitle.findAll('tr')   
-                        tags = [t.text for t in result]
-                        embed = discord.Embed(url = link, title = resulttitle, description ="\n".join(tags))
-                        embed.set_thumbnail(url=img)
-                        await fetmsg.delete()
-                        await waitinfo.clear_reaction("🔍")
-                        await waitinfo.edit(embed = embed)
+                            smalltitle = bigresult[int(fetmsg.content) - 1].find('span')
+                            link = bigresult[int(fetmsg.content) - 1].find('a')['href']
+                            img = bigresult[int(fetmsg.content) - 1].find("img")["src"]
+                            resulttitle = smalltitle.find('b').text 
+                            result = smalltitle.findAll('tr')   
+                            tags = [t.text for t in result]
+                            embed = discord.Embed(url = link, title = resulttitle, description ="\n".join(tags))
+                            embed.set_thumbnail(url=img)
+                            await fetmsg.delete()
+                            await waitinfo.clear_reaction("🔍")
+                            await waitinfo.edit(embed = embed)
                 else:
                     embed = discord.Embed(title = "검색결과가 없는거같아요",description ="다시확인해주세요")
                     await waitinfo.edit(embed = embed)
