@@ -19,7 +19,7 @@ def initialize(bot_class=Bot):
     bot.remove_command ('help')
     bot.load_extension('jishaku')
     initial_extensions = ['cogs.' + x[:-3] 
-                        for x in os.listdir(r"C:\Users\Administrator\Documents\GitHub\Project-EZPZ-Lemon-Squeezy\Bot\cogs") 
+                        for x in os.listdir("cogs") 
                         if x[-3:] == ".py" and not x.startswith("__")]
 
     @bot.command()
@@ -53,7 +53,7 @@ def initialize(bot_class=Bot):
 
 def load_cogs(bot):
     extensions = []
-    for file in os.listdir(r"C:\Users\Administrator\Documents\GitHub\Project-EZPZ-Lemon-Squeezy\Bot\cogs"):
+    for file in os.listdir("cogs"):
         if file.endswith(".py") and not file.startswith("__init__"):
             extensions.append(file.split('.')[0])
     failed = []
