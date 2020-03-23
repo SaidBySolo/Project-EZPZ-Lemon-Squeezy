@@ -1,14 +1,13 @@
 import discord
 from discord.ext import commands
 import sys,os
+sys.path.append(os.path.abspath(r'Bot'))
 sys.path.append(os.path.abspath(r'Bot\cogs'))
-sys.path.append(os.path.abspath('Bot'))
-os.chdir(os.path.abspath('Bot'))
 
 def load_cogs():
     bot = commands.Bot(command_prefix='&')
     extensions = []
-    for file in os.listdir("cogs"):
+    for file in os.listdir(os.path.abspath(r'Bot\cogs')):
         if file.endswith(".py") and not file.startswith("__init__"):
             extensions.append(file.split('.')[0])
     failed = []
