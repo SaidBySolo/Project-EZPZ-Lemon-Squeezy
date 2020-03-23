@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import sys,os
-os.path.abspath(os.path.join(os.path.dirname(__file__),os.pardir))
+os.chdir(os.path.abspath(r'Bot'))
 
 def load_cogs():
     bot = commands.Bot(command_prefix='!')
@@ -12,6 +12,7 @@ def load_cogs():
     failed = []
     for extension in extensions:
         try:
+            os.chdir(os.path.abspath(r'.'))
             bot.load_extension(f"cogs.{extension}")
         except Exception as e:
             print(f"{e.__class__.__name__}: {str(e)}")
