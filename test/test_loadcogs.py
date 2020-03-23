@@ -1,10 +1,12 @@
 import discord
 from discord.ext import commands
 import sys,os
-os.chdir(os.path.abspath(r'Bot'))
+sys.path.append(os.path.abspath(r'Bot\cogs'))
+sys.path.append(os.path.abspath('Bot'))
+os.chdir(os.path.abspath('Bot'))
 
 def load_cogs():
-    bot = commands.Bot(command_prefix='!')
+    bot = commands.Bot(command_prefix='&')
     extensions = []
     for file in os.listdir("cogs"):
         if file.endswith(".py") and not file.startswith("__init__"):
@@ -12,7 +14,6 @@ def load_cogs():
     failed = []
     for extension in extensions:
         try:
-            os.chdir(os.path.abspath(r'.'))
             bot.load_extension(f"cogs.{extension}")
         except Exception as e:
             print(f"{e.__class__.__name__}: {str(e)}")
@@ -22,7 +23,7 @@ def load_cogs():
     return failed
 
 def test_load_cogs():
-    bot = commands.Bot(command_prefix='!')
+    bot = commands.Bot(command_prefix='&')
     failed_cogs = load_cogs()
     assert(len(failed_cogs) == 0)
     
