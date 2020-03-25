@@ -1,12 +1,16 @@
 from pixivpy3 import *
+import os
 import discord
 from discord.ext import commands
 from .etc.botembed import BotEmbed
-from .etc import Auth
+import json
+
+with open(os.path.abspath(r"Bot\cogs\etc\Auth.json"), "r") as PixLogin:
+    Auth = json.load(PixLogin)
 
 def Login():
     aapi = AppPixivAPI()
-    aapi.login(Auth._username, Auth._password)
+    aapi.login(Auth["_username"], Auth["_password"])
     return aapi
 
 class Pixiv(commands.Cog):

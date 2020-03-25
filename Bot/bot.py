@@ -1,65 +1,24 @@
 import os
 import discord
 from discord.ext import commands
-from cogs.etc import Auth
+import json
 
-#prefix
+with open(r"Bot\cogs\etc\Auth.json", "r") as Token:
+    Auth = json.load(Token)
+
+
 bot = commands.Bot(command_prefix='&')
-
-#remove defalt help command
 bot.remove_command ('help')
-
-#paste token
-token = Auth.token
-
-#debug
+token = Auth['token']
 bot.load_extension('jishaku')
-
-#cogs locate
-try:
-    initial_extensions = ['cogs.' + x[:-3] for x in os.listdir("cogs") if x[-3:] == ".py" and not x.startswith("__")]
-except Exception:
-    initial_extensions = ['cogs.' + x[:-3] for x in os.listdir("./Project-EZPZ-Lemon-Squeezy/Bot/cogs") if x[-3:] == ".py" and not x.startswith("__")]
-    
+initial_extensions = ['cogs.' + x[:-3] 
+for x in os.listdir(os.path.abspath(r'Bot\cogs')) 
+if x[-3:] == ".py" and not x.startswith("__")]
 
 #cogs
 if __name__ == '__main__':
     for extension in initial_extensions:
         bot.load_extension(extension)
-        
-#load
-@bot.command()
-@commands.is_owner()
-async def load(ctx, extension):
-    try:
-        bot.load_extension(extension)
-        await ctx.send(f"{extension} 로드 성공.")
-    except Exception as e:
-        await ctx.send(f"{extension} 로드 실패")
-        raise e
-
-#unload
-@bot.command()
-@commands.is_owner()
-async def unload(ctx, extension):
-    try:
-        bot.unload_extension(extension)
-        await ctx.send(f"{extension} 언로드 성공.")
-    except Exception as e:
-        await ctx.send(f"{extension} 언로드 실패")
-        raise e
-
-#reload
-@bot.command()
-@commands.is_owner()
-async def reload(ctx, extension):
-    try:
-        bot.unload_extension(extension)
-        bot.load_extension(extension)
-        await ctx.send(f"{extension} 리로드 성공.")
-    except Exception as e:
-        await ctx.send(f"{extension} 리로드 실패")
-        raise e
 
 #reloadall
 @bot.command()

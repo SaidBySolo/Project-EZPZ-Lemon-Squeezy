@@ -3,12 +3,7 @@ python:
   - "3.8"
 # command to install dependencies
 install: 
-- pip install discord
-- pip install requests
-- pip install bs4
-- pip install lxml
-- pip install asyncio
-- pip install Pynacl
+- pip install -r requirement.txt
 # command to run tests
 script:
-- pytest Bot/test.py
+- pytest
