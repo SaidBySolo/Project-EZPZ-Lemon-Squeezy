@@ -11,9 +11,9 @@ def load_cogs():
         if file.endswith(".py") and not file.startswith("__init__"):
             extensions.append(file.split('.')[0])
     failed = []
-    for extension in initial_extensions:
+    for extension in extensions:
         try:
-            bot.load_extension(extension)
+            bot.load_extension(f"cogs.{extension}")
         except Exception as e:
             print(f"{e.__class__.__name__}: {str(e)}")
             failed.append(extension)
