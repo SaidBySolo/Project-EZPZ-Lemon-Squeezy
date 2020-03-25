@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 import json
 
-with open(r"Bot\cogs\etc\Auth.json", "r") as Token:
+with open("Bot/cogs/etc/Auth.json", "r") as Token:
     Auth = json.load(Token)
 
 

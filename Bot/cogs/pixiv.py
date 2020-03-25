@@ -5,7 +5,7 @@ from discord.ext import commands
 from .etc.botembed import BotEmbed
 import json
 
-with open(os.path.abspath(r"Bot\cogs\etc\Auth.json"), "r") as PixLogin:
+with open(os.path.abspath("Bot/cogs/etc/Auth.json"), "r") as PixLogin:
     Auth = json.load(PixLogin)
 
 def Login():
