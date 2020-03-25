@@ -22,7 +22,6 @@ def load_cogs():
     return failed
 
 def test_load_cogs():
-    bot = commands.Bot(command_prefix='&')
     failed_cogs = load_cogs()
     assert(len(failed_cogs) == 0)
     
