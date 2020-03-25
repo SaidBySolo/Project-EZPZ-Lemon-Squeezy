@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 import json
 
-with open("Bot/cogs/etc/Auth.json", "r") as Token:
+with open("cogs/etc/Auth.json", "r") as Token:
     Auth = json.load(Token)
 
 
@@ -12,7 +12,7 @@ bot.remove_command ('help')
 token = Auth['token']
 bot.load_extension('jishaku')
 initial_extensions = ['cogs.' + x[:-3] 
-for x in os.listdir(os.path.abspath(r'Bot\cogs')) 
+for x in os.listdir('cogs') 
 if x[-3:] == ".py" and not x.startswith("__")]
 
 #cogs
