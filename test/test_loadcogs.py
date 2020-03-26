@@ -3,7 +3,7 @@ from discord.ext import commands
 import sys,os
 sys.path.append(os.path.abspath('Bot'))
 sys.path.append(os.path.abspath('Bot/cogs'))
-sys.path.append(os.path.abspath('Bot/cogs/etc'))
+sys.path.append(os.path.abspath('Bot/cogs/etc/'))
 
 def load_cogs():
     bot = commands.Bot(command_prefix='&')
