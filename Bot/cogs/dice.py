@@ -7,7 +7,7 @@ class Dice(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(pass_context=True)
+    @commands.command()
     async def 주사위(self, ctx, number: int = 6):
         try:
             number = int(number)
