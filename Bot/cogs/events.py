@@ -6,7 +6,7 @@ class Events(commands.Cog):
         self.bot = bot
 
     #login,status
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_ready(self):
         # login
         print("Login.. : ")
