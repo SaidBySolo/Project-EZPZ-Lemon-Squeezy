@@ -56,7 +56,7 @@ class NSFW(commands.Cog):
             search = [t for t in tag]
             data = {"search":search,"paging":1}
             URL = 'https://api.hiyobi.me/search'
-            response = requests.post(URL, data=data).json()
+            response = requests.post(URL, json=data).json()
             idlist = [a['id'] for a in response['list']]
             titlelist = [a['title'] for a in response['list']]
             artistslist = [a['artists'] for a in response['list']]
