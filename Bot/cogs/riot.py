@@ -25,11 +25,10 @@ class Riot(commands.Cog):
         summonerlv = summonerinfo['summonerLevel']
 
         summonerranks = watcher.league.by_summoner(region, summonerid)
-        checksoloranks = len(summonerranks)
         if not summonerranks:
-            nsrembed = discord.Embed(title=f"{summonername}님의 솔로랭크 정보가 없는거 같아요...",description="확인 후 다시시도 해주세요")
+            nsrembed = discord.Embed(title=f"{summonername}님의 솔로랭크 정보가 없는거 같아요...",description="확인후 다시시도 해주세요")
             await waitinfo.edit(embed=nsrembed)
-        elif checksoloranks == 2:
+        elif len(summonerranks) == 2:
             summonerranks = summonerranks[1]
         else:
             summonerranks = summonerranks[0]
