@@ -17,14 +17,7 @@ class General(commands.Cog):
         elif num[0] == str(2):
             await ctx.send(embed=BotEmbed.Helps2)
         elif num[0] == str(3):
-            if ctx.channel.id == self.bot.get_channel(681100920666587138).id:
-                await ctx.send("비활성화된 채널입니다. DM으로 문의해주세요.")
-            elif ctx.channel.id == self.bot.get_channel(681101026530689085).id:
-                await ctx.send("비횔성화된 채널입니다. DM으로 문의해주세요.")
-            elif ctx.channel.id == self.bot.get_channel(681101211105361920).id:
-                await ctx.send("비활성화된 채널입니다. DM으로 문의해주세요.")
-            else:
-                await ctx.send(embed=BotEmbed.Helps3)
+            await ctx.send(embed=BotEmbed.Helps3)
         else:
             await ctx.send("번호를 확인해주세요", delete_after=5)
     
