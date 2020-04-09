@@ -18,7 +18,11 @@ class Riot(commands.Cog):
     @commands.command(name="롤")
     async def lolinfo(self, ctx, *, user):
         waitinfo = await ctx.send(embed = BotEmbed.waitinfoembed)
-        summonerinfo = watcher.summoner.by_name(region, user)
+        try:
+            summonerinfo = watcher.summoner.by_name(region, user)
+        except Exception:
+            nouserembed = discord.Embed(title=f"존재하지않는 유저인거같아요",description="확인후 다시시도 해주세요")
+            await waitinfo.edit(embed=nouserembed)
         summonername = summonerinfo['name']
         summonerid = summonerinfo['id']
         summonerenid = summonerinfo['accountId']
@@ -32,7 +36,7 @@ class Riot(commands.Cog):
             summonerranks = summonerranks[0]
         else:
             summonerranks = summonerranks[0]
-            
+
         queuetype = ranks.rankdict[summonerranks['queueType']]
         tear = ranks.rankdict[summonerranks['tier']]
         rank = ranks.rankdict[summonerranks['rank']]
