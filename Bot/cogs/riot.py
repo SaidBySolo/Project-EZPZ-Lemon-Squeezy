@@ -36,7 +36,10 @@ class Riot(commands.Cog):
             summonerranks = summonerranks[0]
         else:
             summonerranks = summonerranks[0]
-
+        if summonerranks['queueType'] == "RANKED_FLEX_SR":
+            nsrembed = discord.Embed(title=f"{summonername}님의 솔로랭크 정보가 없는거 같아요...",description="확인후 다시시도 해주세요")
+            await waitinfo.edit(embed=nsrembed)
+            
         queuetype = ranks.rankdict[summonerranks['queueType']]
         tear = ranks.rankdict[summonerranks['tier']]
         rank = ranks.rankdict[summonerranks['rank']]
