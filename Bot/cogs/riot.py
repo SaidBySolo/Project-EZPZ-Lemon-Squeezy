@@ -36,7 +36,7 @@ class Riot(commands.Cog):
         win = summonerranks['wins']
         loss = summonerranks['losses']
         #embed
-        embed = discord.Embed(title=f"{summonername}님의 검색 결과입니다.",descripion=f"{queuetype}")
+        embed = discord.Embed(title=f"{summonername}님의 검색 결과입니다.", description=f"{queuetype}")
         embed.set_thumbnail(url=ranks.rankdict[f'{tear}img'])
         embed.add_field(name="레벨", value=f"{summonerlv}레벨", inline=True)
         embed.add_field(name=f"{tear} {rank}", value=f"{point}LP", inline=True)
