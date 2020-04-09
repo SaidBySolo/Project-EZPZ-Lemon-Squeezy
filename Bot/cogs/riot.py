@@ -3,7 +3,6 @@ from discord.ext import commands
 from riotwatcher import LolWatcher
 import json
 from .etc.ranks import ranks
-from .etc.botembed import BotEmbed
 
 with open("Bot/cogs/etc/Auth.json", "r") as riottoken:
     token = json.load(riottoken)
@@ -17,7 +16,6 @@ class Riot(commands.Cog):
 
     @commands.command(name="롤")
     async def lolinfo(self, ctx, *, user):
-        waitinfo = await ctx.send(embed = BotEmbed.waitinfoembed)
         summonerinfo = watcher.summoner.by_name(region, user)
         summonername = summonerinfo['name']
         summonerid = summonerinfo['id']
@@ -26,10 +24,10 @@ class Riot(commands.Cog):
 
         summonerranks = watcher.league.by_summoner(region, summonerid)
         if not summonerranks:
-            nsrembed = discord.Embed(title=f"{summonername}님의 솔로랭크 정보가 없는거 같아요...",description="확인후 다시시도 해주세요")
-            await waitinfo.edit(embed=nsrembed)
+            nsrembed = discord.Embed(title=f"{summonername}님의 솔로랭크 정보가 없는거같아요",description="확인후 다시 시도해주세요")
+            await ctx.send(embed=nsrembed)
         elif len(summonerranks) == 2:
-            summonerranks = summonerranks[1]
+            summonerranks = summonerranks[0]
         else:
             summonerranks = summonerranks[0]
         queuetype = ranks.rankdict[summonerranks['queueType']]
@@ -45,7 +43,7 @@ class Riot(commands.Cog):
         embed.add_field(name=f"{tear} {rank}", value=f"{point}LP", inline=True)
         embed.add_field(name="승/패", value=f"{win}승/{loss}패", inline=True)
         embed.add_field(name="승률", value=f"{round(win/(win+loss)*100, 2)}%",inline=True)
-        await waitinfo.edit(embed=embed)
+        await ctx.send(embed=embed)
         
 
 def setup(bot):
