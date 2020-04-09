@@ -26,14 +26,13 @@ class Riot(commands.Cog):
 
         summonerranks = watcher.league.by_summoner(region, summonerid)
         checksoloranks = len(summonerranks)
-        if checksoloranks == 2:
-            summonerranks = summonerranks[1]
-        else:
-            summonerranks = summonerranks[0]
         if not summonerranks:
             nsrembed = discord.Embed(title=f"{summonername}님의 솔로랭크 정보가 없는거 같아요...",description="확인 후 다시시도 해주세요")
             await waitinfo.edit(embed=nsrembed)
-
+        elif checksoloranks == 2:
+            summonerranks = summonerranks[1]
+        else:
+            summonerranks = summonerranks[0]
         queuetype = ranks.rankdict[summonerranks['queueType']]
         tear = ranks.rankdict[summonerranks['tier']]
         rank = ranks.rankdict[summonerranks['rank']]
