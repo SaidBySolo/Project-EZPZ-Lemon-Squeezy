@@ -8,3 +8,4 @@ ffmpeg
 pynacl
 pixivpy
 jishaku
+riotwatcher
