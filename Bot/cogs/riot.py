@@ -4,7 +4,7 @@ from riotwatcher import LolWatcher
 import json
 from .etc.ranks import ranks
 
-with open("Bot\cogs\etc\Auth.json", "r") as riottoken:
+with open("Bot/cogs/etc/Auth.json", "r") as riottoken:
     token = json.load(riottoken)
 
 region = "kr"
