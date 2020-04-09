@@ -33,21 +33,6 @@ async def reloadall(ctx):
             await ctx.send(f"{extension} 리로드 실패")
             raise e
         
-#login,status
-@bot.event
-async def on_ready():
-    # login
-    print("Login.. : ")
-    print(bot.user.name)
-    print(bot.user.id)
-    print("======================")
-    print(f"{discord.version_info}")
-    print(f"{len(set(bot.get_all_members()))}명이 사용중.")
-    print("======================")
-
-    # Status
-    game = discord.Game("&도움말 | DM으로 문의 받는중 | Alpha v1.1.1")
-    await bot.change_presence(status=discord.Status.online, activity=game)
 
 
 bot.run(token)
