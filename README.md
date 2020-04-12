@@ -1,6 +1,7 @@
 # Project-EZPZ-Lemon-Squeezy
 
 다양한 기능을 목표로하는 디스코드 봇 프로젝트입니다!
+[![Build Status](https://travis-ci.com/SaidBySolo/Project-EZPZ-Lemon-Squeezy.svg?branch=master)](https://travis-ci.com/SaidBySolo/Project-EZPZ-Lemon-Squeezy)
 
 Project Member
 ==
